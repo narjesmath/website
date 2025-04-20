@@ -2513,7 +2513,19 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   pre {color: white; background: #2c2330; padding: 1em; border-radius: 5px;}
   article {padding: 10px; margin: 0;}
   details code {font-size: 1.1em;}
-  </style>
+
+  /* Style the search input */
+  :root {
+    --nav-search-input-background: #fff;
+    --nav-search-input-color: #404040;
+    --nav-search-input-border: 1px solid #ccc;
+    --nav-search-input-border-radius: 0.25rem;
+  }
+
+  /* Give it a fixed width */
+  .distill-search-input {
+    width: 200px;
+  }</style>
   <style type="text/css">
   /* base style */
 
@@ -2713,7 +2725,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <a href="cv.html" aria-label="CV">
 <i class="fa fa-file" aria-hidden="true"></i>
 </a>
-<input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
 </div>
 <div class="nav-right">
 <a href="mailto:nmathlouthi@ucsb.edu" aria-label="Contact me">
@@ -2748,7 +2759,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-article">
 <div class="resume">
 <p><!-- Download Button -->
-<button onclick="window.open('pdfs/Mathlouthi_Narjes_Resume.pdf', '_blank')">Download CV</button></p>
+<button onclick="window.open('pdfs/Narjes_Mathlouthi_CV.pdf', '_blank')">Download CV</button></p>
 <!-- Education Section -->
 <section class="edu">
 <h3>
@@ -2773,12 +2784,39 @@ University of California, Berkeley
 </li>
 </ul>
 </section>
-<!-- Experience Section (fill in later) -->
+<!-- Experience Section -->
 <section class="experience">
 <h3>
 <i class="fa fa-briefcase"></i> Experience
 </h3>
-<!-- Add positions with <h4>Role</h4>, <p>Details</p> here -->
+<h4>
+Planet Archive Intern
+</h4>
+<p>
+<strong>Office of Research, UCSB</strong> – Santa Barbara, CA (Jun 2024 – Jan 2025)<br>
+Developed a harvesting strategy and automated workflows to collect PlanetScope satellite imagery across California Natural Reserve sites.
+</p>
+<h4>
+Machine Learning Intern
+</h4>
+<p>
+<strong>National Energy Technology Laboratory (NETL)</strong> – Albany, OR (Jun 2023 – Aug 2023)<br>
+Designed ML models to predict thermal expansion in high-temperature alloys. Built training datasets and evaluated model performance across alloy systems.
+</p>
+<h4>
+Conservation Analysis Intern
+</h4>
+<p>
+<strong>Conservation International</strong> – Santa Barbara, CA (Jun 2022 – Aug 2022)<br>
+Conducted cost-benefit analysis for tuna sustainability projects in Fiji. Mapped supply chains to inform strategic improvements.
+</p>
+<h4>
+Grants Officer
+</h4>
+<p>
+<strong>Global Fund for Women</strong> – San Francisco, CA (Nov 2020 – Oct 2021)<br>
+Managed over 350 global grants, implemented Salesforce tools for communication, and streamlined data workflows for grantmaking.
+</p>
 </section>
 <!-- Skills Section -->
 <section class="skills-prog">
@@ -2786,7 +2824,11 @@ University of California, Berkeley
 <i class="fas fa-code"></i> Programming Skills
 </h3>
 <p>
-Python, R, SQL, GIS, JavaScript, Bash, C, HTML, CSS, Salesforce CRM
+<strong>Languages:</strong> Python, R, SQL, JavaScript, C, Bash, HTML, CSS<br>
+<strong>Data Science &amp; ML:</strong> pandas, NumPy, scikit-learn, TensorFlow, Keras, caret, Quarto, Jupyter, RStudio<br>
+<strong>Remote Sensing &amp; GIS:</strong> ArcGIS, QGIS, Google Earth Engine, rasterio, geopandas<br>
+<strong>Databases &amp; Cloud:</strong> PostgreSQL/PostGIS, BigQuery, Google Cloud Platform (GCS, Dataflow, BigQuery)<br>
+<strong>DevOps &amp; Tools:</strong> Git, GitHub, Docker, Redis, Celery, Salesforce CRM, LaTeX
 </p>
 </section>
 <!-- Interests Section -->
