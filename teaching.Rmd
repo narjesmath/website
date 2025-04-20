@@ -3,9 +3,6 @@ title: "Teaching"
 ---
 
 
-
----
-
 ## Teaching Assistant  
 **Applied Statistics for Geography (GEOG 279)** _(Graduate‑level course)_, Department of Geography, UCSB  
 _Santa Barbara, CA_  
@@ -19,7 +16,6 @@ _Santa Barbara, CA_
 
 - Prepared bi-weekly assignments, labs, and grading rubrics.
 
----
 
 ## Associate Student Instructor  
 **The Geography of Surfing**, Department of Geography, UCSB  
@@ -32,7 +28,6 @@ _Santa Barbara, CA_
 
 - Enhanced engagement by integrating multimedia and interactive activities.
 
----
 
 ## Instructor Administrative Assistant  
 **Introduction to Economics**, Department of Economics, UCSB  
@@ -45,7 +40,6 @@ _Santa Barbara, CA_
 
 - Held weekly office hours to support students’ questions and project work.
 
----
 
 ## Teaching Assistant  
 **Department of Environmental Studies**, UCSB  
@@ -58,7 +52,6 @@ _Santa Barbara, CA_
 
 - Delivered a guest lecture on _“Externalities & Public Goods”_ in introductory Environmental Economics.
 
----
 
 ## Teaching Assistant  
 **Introduction to Economics**, Department of Economics, UCSB  
@@ -71,7 +64,6 @@ _Santa Barbara, CA_
 
 - Guest‑lectured on _“Externalities & Public Goods”_ and _“Stackelberg vs. Cournot Oligopoly.”_
 
----
 
 ## Excel Workshop Assistant  
 **UCSB Bren School**, UCSB  
