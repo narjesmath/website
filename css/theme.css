@@ -351,3 +351,19 @@ details code {font-size: 1.1em;}
 .distill-search-input {
   width: 200px;
 }
+
+
+.download-btn {
+  display: inline-block;
+  background-color: #004F90;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+  background-color: #003f73;
+}

@@ -2525,6 +2525,22 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   /* Give it a fixed width */
   .distill-search-input {
     width: 200px;
+  }
+
+
+  .download-btn {
+    display: inline-block;
+    background-color: #004F90;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .download-btn:hover {
+    background-color: #003f73;
   }</style>
   <style type="text/css">
   /* base style */
@@ -2758,8 +2774,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <div class="d-article">
 <div class="resume">
-<p><!-- Download Button -->
-<button onclick="window.open('pdfs/Narjes_Mathlouthi_CV.pdf', '_blank')">Download CV</button></p>
+<!-- Download Button -->
+<p><a href="pdfs/Narjes_Mathlouthi_CV.pdf" target="_blank" class="download-btn">
+<i class="fa fa-download"></i> Download CV
+</a></p>
 <!-- Education Section -->
 <section class="edu">
 <h3>

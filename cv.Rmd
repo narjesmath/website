@@ -5,8 +5,10 @@ output:
   css: css/theme.css
 ---
 <div class="resume">
-  <!-- Download Button -->
-  <button onclick="window.open('pdfs/Narjes_Mathlouthi_CV.pdf', '_blank')">Download CV</button>
+<!-- Download Button -->
+<a href="pdfs/Narjes_Mathlouthi_CV.pdf" target="_blank" class="download-btn">
+  <i class="fa fa-download"></i> Download CV
+</a>
 
   <!-- Education Section -->
   <section class="edu">
