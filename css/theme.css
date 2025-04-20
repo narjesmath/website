@@ -168,19 +168,25 @@ d-appendix {
   background: #fff;
   border-radius: 0.5rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  overflow: hidden;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap;        /* wraps on narrow screens */
+  align-items: flex-start;
 }
 
+/* force the image to sit on the left at a fixed width */
 .card-img {
-  flex: 1 1 300px;
+  flex: 0 0 300px;        /* don’t grow/shrink, always 300px wide */
+  max-width: 300px;
   width: 100%;
+  height: auto;
   object-fit: cover;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
 }
 
+/* text takes up the remaining space */
 .card-content {
-  flex: 2 1 400px;
+  flex: 1 1 auto;
   padding: 1.5rem;
 }
 
@@ -189,4 +195,23 @@ d-appendix {
   line-height: 1.6;
   color: var(--body-color);
   font-size: var(--body-size);
+}
+
+/* Hyperlink colors */
+html {
+  /* … existing vars … */
+  --link-color: #007acc;        /*  link color */
+  --link-hover-color: #005fa3;  /* color on hover */
+}
+
+/* Underlining */
+a {
+  color: var(--link-color);
+  text-decoration: none;       /*  underline  */
+}
+
+a:hover,
+a:focus {
+  color: var(--link-hover-color);
+  text-decoration: underline;
 }
