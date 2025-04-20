@@ -2324,16 +2324,99 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   }
 
   .btn {
+    background-color: #EA4C89;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
     display: inline-block;
-    padding: 0.5em 1em;
-    background-color: #007acc;
-    color: #fff;
-    border-radius: 0.25rem;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
     text-decoration: none;
-    font-weight: bold;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
   }
-  .btn:hover {
-    background-color: #005fa3;
+
+  .btn:hover,
+  .btn:focus {
+    background-color: #F082AC;
+  }
+
+  /* Profile card on home page */
+  .card {
+    display: flex;
+    flex-wrap: wrap;      /* stacks on narrow viewports */
+    align-items: flex-start;
+    max-width: 800px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .card-img {
+    flex: 0 0 300px;      /* fixed 300px wide */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+  }
+
+  .card-content {
+    flex: 1 1 auto;       /* take remaining space */
+    padding: 1.5rem;
+  }
+
+  .card-content > p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: var(--body-color);
+    font-size: var(--body-size);
+  }
+
+  /* text takes up the remaining space */
+  .card-content {
+    flex: 1 1 auto;
+    padding: 1.5rem;
+  }
+
+  .card-content > p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: var(--body-color);
+    font-size: var(--body-size);
+  }
+
+  /* Hyperlink colors */
+  html {
+    /* … existing vars … */
+    --link-color: #007acc;        /*  link color */
+    --link-hover-color: #005fa3;  /* color on hover */
+  }
+
+  /* Underlining */
+  a {
+    color: var(--link-color);
+    text-decoration: none;       /*  underline  */
+  }
+
+  a:hover,
+  a:focus {
+    color: var(--link-hover-color);
+    text-decoration: underline;
   }</style>
   <style type="text/css">
   /* base style */
@@ -2568,8 +2651,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <div class="d-article">
 <hr />
-<h2 id="geog-279-applied-statistics-for-geography">GEOG 279 – Applied Statistics for Geography</h2>
-<p><strong>Department of Geography</strong>, UCSB<br />
+<h2 id="teaching-assistant">Teaching Assistant</h2>
+<p><strong>Applied Statistics for Geography (GEOG 279)</strong> <em>(Graduate‑level course)</em>, Department of Geography, UCSB<br />
 <em>Santa Barbara, CA</em><br />
 <strong>Sep 2024 – Dec 2024</strong></p>
 <ul>
@@ -2592,7 +2675,7 @@ View Course Site
 </ul>
 <hr />
 <h2 id="instructor-administrative-assistant">Instructor Administrative Assistant</h2>
-<p><strong>Department of Economics</strong>, UCSB<br />
+<p><strong>Introduction to Economics</strong>, Department of Economics, UCSB<br />
 <em>Santa Barbara, CA</em><br />
 <strong>Jan 2023 – Jun 2023</strong></p>
 <ul>
@@ -2601,7 +2684,7 @@ View Course Site
 <li><p>Held weekly office hours to support students’ questions and project work.</p></li>
 </ul>
 <hr />
-<h2 id="teaching-assistant">Teaching Assistant</h2>
+<h2 id="teaching-assistant-1">Teaching Assistant</h2>
 <p><strong>Department of Environmental Studies</strong>, UCSB<br />
 <em>Santa Barbara, CA</em><br />
 <strong>Sep 2022 – Dec 2023</strong></p>
@@ -2611,8 +2694,8 @@ View Course Site
 <li><p>Delivered a guest lecture on <em>“Externalities &amp; Public Goods”</em> in introductory Environmental Economics.</p></li>
 </ul>
 <hr />
-<h2 id="teaching-assistant-1">Teaching Assistant</h2>
-<p><strong>Department of Economics</strong>, UCSB<br />
+<h2 id="teaching-assistant-2">Teaching Assistant</h2>
+<p><strong>Introduction to Economics</strong>, Department of Economics, UCSB<br />
 <em>Santa Barbara, CA</em><br />
 <strong>Oct 2021 – Jun 2022</strong></p>
 <ul>

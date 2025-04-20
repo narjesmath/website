@@ -19,26 +19,34 @@ output:
 <div class="projects-container">
 <div class="project-container project-card">
 <p class="project-details">
-<h3 class="project-title">California Oil Spill (2008) </h3>
+<h3>
+    <a
+      href="projects/ca_oil_spill_2008.html"
+      target="_blank"
+      class="btn project-title">
+      California Oil Spill (2008)
+    </a>
+</h3>
 <img
 src="images/caoilspill.png" style="width:50%" loading="lazy"
 class="project-pic"/>
-<br>
-<a  target="_blank" href="projects/ca_oil_spill_2008.html">Here</a>
-</br>
 </p>
 </div>
 </div>
 <div class="projects-container">
 <div class="project-container project-card">
 <p class="project-details">
-<h3 class="project-title"> Sentiment Analysis </h3>
+<h3>
+    <a
+      href="projects/sentiment_analysis.html"
+      target="_blank"
+      class="btn project-title">
+      Sentiment Analysis
+    </a>
+</h3>
 <img
 src="images/sentiment_analysis_words.png" style="width:50%" loading="lazy"
 class="project-pic"/>
-<br>
-<a  target="_blank" href="projects/sentiment_analysis.html">Here</a>
-</br>
 </p>
 </div>
 </div>
@@ -46,26 +54,35 @@ class="project-pic"/>
 <div class="projects-container">
 <div class="project-container project-card">
 <p class="project-details">
-<h3 class="project-title">Willamette Falls Fish Passage </h3>
+<h3>
+    <a
+      href="projects/fish_passage.html"
+      target="_blank"
+      class="btn project-title">
+      Willamette Falls Fish Passage
+    </a>
+</h3>
 <img
 src="images/willamette_falls_map.png" style="width:50%" loading="lazy"
 class="project-pic"/>
-<br>
-<a  target="_blank" href="projects/fish_passage.html">Here</a>
-</br>
 </p>
 </div>
 
 <div class="projects-container">
 <div class="project-container project-card">
 <p class="project-details">
-<h3 class="project-title"> Binary Logistic Analysis </h3>
+<h3>
+    <a
+      href="projects/binary_logistic_regression.html"
+      target="_blank"
+      class="btn project-title">
+      Binary Logistic Analysis
+    </a>
+</h3>
+
 <img
 src="images/blr.png" style="width:50%" loading="lazy"
 class="project-pic"/>
-<br>
-<a  target="_blank" href="projects/binary_logistic_regression.html">Here</a>
-</br>
 </p>
 </div>
 </div>
@@ -74,13 +91,19 @@ class="project-pic"/>
 <div class="projects-container">
 <div class="project-container project-card">
 <p class="project-details">
-<h3 class="project-title">Juvenile Snowhare Count </h3>
+<h3>
+    <a
+      href="projects/narjes_mathlouthi_snowshoe_report.html"
+      target="_blank"
+      class="btn project-title">
+      Juvenile Snowhare Count
+    </a>
+</h3>
+
 <img
 src="images/map_of_bonanza_creek_alaska.png" style="width:50%" loading="lazy"
 class="project-pic"/>
-<br>
-<a  target="_blank" href="projects/narjes_mathlouthi_snowshoe_report.html">Here</a>
-</br>
+
 </p>
 </div>
 </div>

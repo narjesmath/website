@@ -149,39 +149,67 @@ d-appendix {
 }
 
 .btn {
+  background-color: #EA4C89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
   display: inline-block;
-  padding: 0.5em 1em;
-  background-color: #007acc;
-  color: #fff;
-  border-radius: 0.25rem;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
   text-decoration: none;
-  font-weight: bold;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
-.btn:hover {
-  background-color: #005fa3;
+
+.btn:hover,
+.btn:focus {
+  background-color: #F082AC;
 }
 
 /* Profile card on home page */
 .card {
+  display: flex;
+  flex-wrap: wrap;      /* stacks on narrow viewports */
+  align-items: flex-start;
   max-width: 800px;
   margin: 2rem auto;
   background: #fff;
   border-radius: 0.5rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  display: flex;
-  flex-wrap: wrap;        /* wraps on narrow screens */
-  align-items: flex-start;
 }
 
-/* force the image to sit on the left at a fixed width */
 .card-img {
-  flex: 0 0 300px;        /* don’t grow/shrink, always 300px wide */
-  max-width: 300px;
+  flex: 0 0 300px;      /* fixed 300px wide */
   width: 100%;
   height: auto;
   object-fit: cover;
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
+}
+
+.card-content {
+  flex: 1 1 auto;       /* take remaining space */
+  padding: 1.5rem;
+}
+
+.card-content > p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--body-color);
+  font-size: var(--body-size);
 }
 
 /* text takes up the remaining space */
