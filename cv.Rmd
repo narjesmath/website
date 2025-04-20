@@ -4,6 +4,7 @@ output:
   html_document:
   css: css/theme.css
 ---
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <div class="resume">
 <!-- Download Button -->
 <a href="pdfs/Narjes_Mathlouthi_CV.pdf" target="_blank" class="download-btn">
@@ -77,3 +78,31 @@ output:
     </ul>
   </section>
 </div>
+
+
+<footer style="text-align: center; margin-top: 40px; padding: 20px; font-size: 0.85em; color: #666;">
+  <hr style="margin-bottom: 10px;">
+
+  <!-- Social Media Icons -->
+  <a href="mailto:nmathlouthi@ucsb.edu" title="Email"><i class="fas fa-envelope"></i></a> &nbsp;
+  <a href="https://github.com/narjesmath" target="_blank" title="GitHub"><i class="fab fa-github"></i></a> &nbsp;
+  <a href="https://www.linkedin.com/in/narjes-m" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a> &nbsp;
+  <a href="https://narjesmathlouthi.com" target="_blank" title="Website"><i class="fas fa-globe"></i></a>
+
+  <!-- Copyright and Last Updated -->
+  © 2025 Narjes Mathlouthi. All rights reserved. <br>
+  <em>Last updated: April 2025</em><br><br>
+
+  <!-- Back to Top Button -->
+  <a href="#" style="
+    background-color: #004F90;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.8em;
+  ">
+    ↑ Back to Top
+  </a>
+</footer>

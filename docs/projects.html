@@ -2513,7 +2513,35 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   pre {color: white; background: #2c2330; padding: 1em; border-radius: 5px;}
   article {padding: 10px; margin: 0;}
   details code {font-size: 1.1em;}
-  </style>
+
+  /* Style the search input */
+  :root {
+    --nav-search-input-background: #fff;
+    --nav-search-input-color: #404040;
+    --nav-search-input-border: 1px solid #ccc;
+    --nav-search-input-border-radius: 0.25rem;
+  }
+
+  /* Give it a fixed width */
+  .distill-search-input {
+    width: 200px;
+  }
+
+
+  .download-btn {
+    display: inline-block;
+    background-color: #004F90;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .download-btn:hover {
+    background-color: #003f73;
+  }</style>
   <style type="text/css">
   /* base style */
 
@@ -2713,7 +2741,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <a href="cv.html" aria-label="CV">
 <i class="fa fa-file" aria-hidden="true"></i>
 </a>
-<input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
 </div>
 <div class="nav-right">
 <a href="mailto:nmathlouthi@ucsb.edu" aria-label="Contact me">
@@ -2867,6 +2894,29 @@ Willamette Falls Fish Passage
 </div>
 </details>
 </div>
+<footer style="text-align: center; margin-top: 40px; padding: 20px; font-size: 0.85em; color: #666;">
+<hr style="margin-bottom: 10px;">
+<p><!-- Social Media Icons -->
+<a href="mailto:nmathlouthi@ucsb.edu" title="Email"><i class="fas fa-envelope"></i></a>  
+<a href="https://github.com/narjesmath" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>  
+<a href="https://www.linkedin.com/in/narjes-m" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>  
+<a href="https://narjesmathlouthi.com" target="_blank" title="Website"><i class="fas fa-globe"></i></a></p>
+<p><!-- Copyright and Last Updated -->
+© 2025 Narjes Mathlouthi. All rights reserved. <br>
+<em>Last updated: April 2025</em><br><br></p>
+<!-- Back to Top Button -->
+<a href="#" style="
+    background-color: #004F90;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.8em;
+  ">
+↑ Back to Top
+</a>
+</footer>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
