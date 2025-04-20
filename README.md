@@ -5,8 +5,7 @@
 ## Overview
 This repository contains the source for my personal website built with R Markdown and the Distill framework, hosted on GitHub Pages. The site features:
 
-- **Home** page introduction  
-- **About** page with academic background  
+- **Home** Bio page 
 - **Teaching** page detailing courses supported  
 - **Projects** page showcasing recent work  
 - **Research** page summarizing interests  
