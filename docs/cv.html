@@ -2331,7 +2331,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     color: #FFFFFF;
     cursor: pointer;
     display: inline-block;
-    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-weight: 500;
     height: 40px;
@@ -2418,7 +2417,61 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   a:focus {
     color: var(--link-hover-color);
     text-decoration: underline;
-  }</style>
+  }
+
+
+  /*-- Custom styles for the projects section --*/
+  summary {
+    list-style: none;
+    display: flex; /* also removes the list marker */
+    align-items: center;
+    padding: 10px;
+    font-weight: bold;
+  }
+
+  summary::after {
+    content: '';
+    width: 18px;
+    height: 10px;
+    background: url('https://uploads.sitepoint.com/wp-content/uploads/2023/10/1697699669arrow.svg') no-repeat;
+    background-size: cover;
+    margin-left: .75em;
+    transition: 0.2s;
+  }
+
+  details[open] > summary::after {
+    transform: rotate(180deg);
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary {
+    background-color: #ca225e; /*#e792e7*/
+    background-image: linear-gradient(90deg, #ca225e 0%, #F9E6E4 100%);
+    color: #fdf7f9;
+    border-radius: 5px;
+  }
+
+  details[open] summary {border-radius: 5px 5px 0 0;}
+
+  details {
+    /*background: #2196F3; */
+    border-radius: 5px;
+  }
+
+  /* extra styles */
+
+  * {box-sizing: border-box;}
+  body {sans-serif; margin: 20px; /*background: #fff9f1;*/}
+  h1 {font-size: 2em;}
+  article > *:first-child {margin: 0;}
+  article > * + * {margin: 0.75em 0 0 0;}
+  pre {color: white; background: #2c2330; padding: 1em; border-radius: 5px;}
+  article {padding: 10px; margin: 0;}
+  details code {font-size: 1.1em;}
+  </style>
   <style type="text/css">
   /* base style */
 
@@ -2606,7 +2659,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <a href="index.html" aria-label="Home">
 <i class="fa fa-home" aria-hidden="true"></i>
 </a>
-<a href="teaching.html" aria-label="Teaching">
+<a href="teaching/" aria-label="Teaching">
 <i class="fa fa-chalkboard-teacher" aria-hidden="true"></i>
 </a>
 <a href="projects.html" aria-label="Projects">
