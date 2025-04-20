@@ -11,7 +11,7 @@ output:
 ![](images/narjes.jpg){.card-img style="width:150px; height:auto;"}
 
 ::: {.card-content}
-I am a second‑year PhD student in the [Department of Geography](https://www.geog.ucsb.edu/about){target="_blank"} and a Master’s candidate in Mathematical Probability and Statistics in the PSTAT department at UCSB.
+I am a second‑year PhD student in the [Department of Geography](https://www.geog.ucsb.edu/about){target="_blank"} and a Master’s candidate in the Probability and Statistics (PSTAT) department at the University of California Santa Barbara (UCSB).
 
 Previously, I earned a Master’s in Environmental Science and Management from UCSB’s Bren School and a Bachelor’s in Environmental Economics and Policy from UC Berkeley.
 
