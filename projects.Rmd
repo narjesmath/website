@@ -1,7 +1,8 @@
 ---
+site: distill::distill_site
 title: "Projects"
 output:
-  html_document:
+  distill::distill_article:
     self_contained: false   # keep CSS external
     css: css/theme.css
 ---
@@ -23,7 +24,7 @@ output:
 src="images/caoilspill.png" style="width:50%" loading="lazy"
 class="project-pic"/>
 <br>
-<a  target="_blank" href="ca_oil_spill_2008.html">Here</a>
+<a  target="_blank" href="projects/ca_oil_spill_2008.html">Here</a>
 </br>
 </p>
 </div>
@@ -36,7 +37,7 @@ class="project-pic"/>
 src="images/sentiment_analysis_words.png" style="width:50%" loading="lazy"
 class="project-pic"/>
 <br>
-<a  target="_blank" href="sentiment_analysis.html">Here</a>
+<a  target="_blank" href="projects/sentiment_analysis.html">Here</a>
 </br>
 </p>
 </div>
@@ -50,7 +51,7 @@ class="project-pic"/>
 src="images/willamette_falls_map.png" style="width:50%" loading="lazy"
 class="project-pic"/>
 <br>
-<a  target="_blank" href="fish_passage.html">Here</a>
+<a  target="_blank" href="projects/fish_passage.html">Here</a>
 </br>
 </p>
 </div>
@@ -63,7 +64,7 @@ class="project-pic"/>
 src="images/blr.png" style="width:50%" loading="lazy"
 class="project-pic"/>
 <br>
-<a  target="_blank" href="binary_logistic_regression.html">Here</a>
+<a  target="_blank" href="projects/binary_logistic_regression.html">Here</a>
 </br>
 </p>
 </div>
@@ -78,7 +79,7 @@ class="project-pic"/>
 src="images/map_of_bonanza_creek_alaska.png" style="width:50%" loading="lazy"
 class="project-pic"/>
 <br>
-<a  target="_blank" href="narjes_mathlouthi_snowshoe_report.html">Here</a>
+<a  target="_blank" href="projects/narjes_mathlouthi_snowshoe_report.html">Here</a>
 </br>
 </p>
 </div>

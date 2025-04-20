@@ -107,7 +107,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","output"]}},"value":[{"type":"character","attributes":{},"value":["Projects"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["html_document"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","css"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["css/theme.css"]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["site","title","output"]}},"value":[{"type":"character","attributes":{},"value":["distill::distill_site"]},{"type":"character","attributes":{},"value":["Projects"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","css"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["css/theme.css"]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2321,6 +2321,74 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     margin-top: 0.5rem;
     text-decoration: none;
     font-weight: bold;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background-color: #007acc;
+    color: #fff;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .btn:hover {
+    background-color: #005fa3;
+  }
+
+  /* Profile card on home page */
+  .card {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-wrap: wrap;        /* wraps on narrow screens */
+    align-items: flex-start;
+  }
+
+  /* force the image to sit on the left at a fixed width */
+  .card-img {
+    flex: 0 0 300px;        /* don’t grow/shrink, always 300px wide */
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+  }
+
+  /* text takes up the remaining space */
+  .card-content {
+    flex: 1 1 auto;
+    padding: 1.5rem;
+  }
+
+  .card-content > p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: var(--body-color);
+    font-size: var(--body-size);
+  }
+
+  /* Hyperlink colors */
+  html {
+    /* … existing vars … */
+    --link-color: #007acc;        /*  link color */
+    --link-hover-color: #005fa3;  /* color on hover */
+  }
+
+  /* Underlining */
+  a {
+    color: var(--link-color);
+    text-decoration: none;       /*  underline  */
+  }
+
+  a:hover,
+  a:focus {
+    color: var(--link-hover-color);
+    text-decoration: underline;
   }</style>
   <style type="text/css">
   /* base style */
@@ -2489,6 +2557,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_site_in_header-->
   <!--/radix_placeholder_site_in_header-->
 
+  <link rel="stylesheet" href="css/theme.css" type="text/css"/>
 
 </head>
 
@@ -2574,7 +2643,7 @@ California Oil Spill (2008)
 src="images/caoilspill.png" style="width:50%" loading="lazy"
 class="project-pic"/>
 <br>
-<a  target="_blank" href="ca_oil_spill_2008.html">Here</a>
+<a  target="_blank" href="projects/ca_oil_spill_2008.html">Here</a>
 </br>
 </p>
 </div>
@@ -2589,7 +2658,7 @@ Sentiment Analysis
 src="images/sentiment_analysis_words.png" style="width:50%" loading="lazy"
 class="project-pic"/>
 <br>
-<a  target="_blank" href="sentiment_analysis.html">Here</a>
+<a  target="_blank" href="projects/sentiment_analysis.html">Here</a>
 </br>
 </p>
 </div>
@@ -2604,7 +2673,7 @@ Willamette Falls Fish Passage
 src="images/willamette_falls_map.png" style="width:50%" loading="lazy"
 class="project-pic"/>
 <br>
-<a  target="_blank" href="fish_passage.html">Here</a>
+<a  target="_blank" href="projects/fish_passage.html">Here</a>
 </br>
 </p>
 </div>
@@ -2618,7 +2687,7 @@ Binary Logistic Analysis
 src="images/blr.png" style="width:50%" loading="lazy"
 class="project-pic"/>
 <br>
-<a  target="_blank" href="binary_logistic_regression.html">Here</a>
+<a  target="_blank" href="projects/binary_logistic_regression.html">Here</a>
 </br>
 </p>
 </div>
@@ -2633,7 +2702,7 @@ Juvenile Snowhare Count
 src="images/map_of_bonanza_creek_alaska.png" style="width:50%" loading="lazy"
 class="project-pic"/>
 <br>
-<a  target="_blank" href="narjes_mathlouthi_snowshoe_report.html">Here</a>
+<a  target="_blank" href="projects/narjes_mathlouthi_snowshoe_report.html">Here</a>
 </br>
 </p>
 </div>
