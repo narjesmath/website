@@ -7,111 +7,128 @@ output:
     css: css/theme.css
 ---
 
-<html>
+::: {=html}
+<details open>
+<summary>Upcoming Projects</summary>
+
+<div class="projects-grid">
+  <!--
+  <article class="project-card">
+    <h3>
+      <a
+        href="projects/new_project.html"
+        target="_blank"
+        class="btn project-title"
+      >
+        My New Awesome Project
+      </a>
+    </h3>
+    <img
+      src="images/new_project_thumbnail.png"
+      alt="My New Awesome Project"
+      class="project-pic"
+      loading="lazy"
+    />
+  </article>
+  -->
+  <!-- Copy & paste the above block (remove the <!-- -->
+</div>
+</details>
+
+<details>
+<summary>Older Projects</summary>
+
+<div class="projects-grid">
+  <article class="project-card">
+    <h3>
+      <a
+        href="projects/ca_oil_spill_2008.html"
+        target="_blank"
+        class="btn project-title"
+      >
+        California Oil Spill (2008)
+      </a>
+    </h3>
+    <img
+      src="images/caoilspill.png"
+      alt="California Oil Spill"
+      class="project-pic"
+      loading="lazy"
+    />
+  </article>
+
+  <article class="project-card">
+    <h3>
+      <a
+        href="projects/sentiment_analysis.html"
+        target="_blank"
+        class="btn project-title"
+      >
+        Sentiment Analysis
+      </a>
+    </h3>
+    <img
+      src="images/sentiment_analysis_words.png"
+      alt="Sentiment Analysis"
+      class="project-pic"
+      loading="lazy"
+    />
+  </article>
+  <article class="project-card">
+    <h3>
+      <a
+        href="projects/binary_logistic_regression.html"
+        target="_blank"
+        class="btn project-title"
+      >
+        Binary Logistic Analysis
+      </a>
+    </h3>
+    <img
+      src="images/blr.png"
+      alt="Binary Logistic Analysis"
+      class="project-pic"
+      loading="lazy"
+    />
+  </article>
+
+  <article class="project-card">
+    <h3>
+      <a
+        href="projects/narjes_mathlouthi_snowshoe_report.html"
+        target="_blank"
+        class="btn project-title"
+      >
+        Juvenile Snowhare Count
+      </a>
+    </h3>
+    <img
+      src="images/map_of_bonanza_creek_alaska.png"
+      alt="Juvenile Snowhare Count"
+      class="project-pic"
+      loading="lazy"
+    />
+  </article>
   
-<body>
-<section class="projects" id="projects">
-<h2 class="projects-title"> Recent Projects</h2>
-
-<section class="projects" id="projects">
-<h2 class="projects-title"> Older Projects</h2>
-
-<div class="projects-container">
-<div class="project-container project-card">
-<p class="project-details">
-<h3>
-    <a
-      href="projects/ca_oil_spill_2008.html"
-      target="_blank"
-      class="btn project-title">
-      California Oil Spill (2008)
-    </a>
-</h3>
-<img
-src="images/caoilspill.png" style="width:50%" loading="lazy"
-class="project-pic"/>
-</p>
-</div>
-</div>
-<div class="projects-container">
-<div class="project-container project-card">
-<p class="project-details">
-<h3>
-    <a
-      href="projects/sentiment_analysis.html"
-      target="_blank"
-      class="btn project-title">
-      Sentiment Analysis
-    </a>
-</h3>
-<img
-src="images/sentiment_analysis_words.png" style="width:50%" loading="lazy"
-class="project-pic"/>
-</p>
-</div>
-</div>
-
-<div class="projects-container">
-<div class="project-container project-card">
-<p class="project-details">
-<h3>
-    <a
-      href="projects/fish_passage.html"
-      target="_blank"
-      class="btn project-title">
-      Willamette Falls Fish Passage
-    </a>
-</h3>
-<img
-src="images/willamette_falls_map.png" style="width:50%" loading="lazy"
-class="project-pic"/>
-</p>
-</div>
-
-<div class="projects-container">
-<div class="project-container project-card">
-<p class="project-details">
-<h3>
-    <a
-      href="projects/binary_logistic_regression.html"
-      target="_blank"
-      class="btn project-title">
-      Binary Logistic Analysis
-    </a>
-</h3>
-
-<img
-src="images/blr.png" style="width:50%" loading="lazy"
-class="project-pic"/>
-</p>
-</div>
-</div>
-
-
-<div class="projects-container">
-<div class="project-container project-card">
-<p class="project-details">
-<h3>
-    <a
-      href="projects/narjes_mathlouthi_snowshoe_report.html"
-      target="_blank"
-      class="btn project-title">
-      Juvenile Snowhare Count
-    </a>
-</h3>
-
-<img
-src="images/map_of_bonanza_creek_alaska.png" style="width:50%" loading="lazy"
-class="project-pic"/>
-
-</p>
-</div>
-</div>
-
-
-
-</div>
-</section>
-</html>
+<article class="project-card">
+    <h3>
+      <a
+        href="projects/fish_passage.html"
+        target="_blank"
+        class="btn project-title"
+      >
+        Willamette Falls Fish Passage
+      </a>
+    </h3>
+    <img
+      src="images/willamette_falls_map.png"
+      alt="Willamette Falls Fish Passage"
+      class="project-pic"
+      loading="lazy"
+    />
+  </article>
   
-</body>
+</div>
+</details>
+:::
+
