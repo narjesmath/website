@@ -2541,6 +2541,83 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   .download-btn:hover {
     background-color: #003f73;
+  }
+
+  /* ---------- Section Titles ---------- */
+  section {
+    margin-bottom: 2rem;
+  }
+  section h3 {
+    font-size: 1.3rem;
+    color: #ca225e;
+    border-bottom: 2px solid #ca225e;
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem;
+  }
+  section h3 i {
+    margin-right: 0.5rem;
+  }
+
+  /* ---------- Grid‐based Entries ---------- */
+  .exp-entry {
+    display: grid;
+    grid-template-columns: 1fr 120px;
+    column-gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #ddd;
+    /* <-- add this line: */
+    align-items: start;
+  }
+
+  .exp-dates {
+    text-align: right;
+    font-size: 0.9rem;
+    color: #555;
+    white-space: nowrap;
+    /* <-- or, alternatively, you can force only the dates column to top align: */
+    align-self: start;
+  }
+
+  /* Left column content */
+  .exp-main h4 {
+    margin: 0 0 0.25rem;
+    font-size: 1.1rem;
+    color: #ca225e;
+  }
+  .exp-main p {
+    margin: 0 0 0.5rem;
+    font-style: italic;
+    color: #555;
+  }
+  .exp-bullets {
+    margin: 0;
+    padding-left: 1.2rem;
+    list-style-type: disc;
+    color: #333;
+  }
+  .exp-bullets li {
+    margin-bottom: 0.4rem;
+  }
+
+
+
+
+
+  /* ---------- Utility (Optional) ---------- */
+  /* Remove bottom border on last entry automatically */
+  .exp-entry:last-of-type {
+    border-bottom: none;
+  }
+
+  /* Responsive tweak: stack columns on narrow screens */
+  @media (max-width: 600px) {
+    .exp-entry {
+      grid-template-columns: 1fr;
+    }
+    .exp-dates {
+      margin-top: 0.5rem;
+      text-align: left;
+    }
   }</style>
   <style type="text/css">
   /* base style */
