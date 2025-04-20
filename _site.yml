@@ -1,6 +1,6 @@
 name: "Narjes Mathlouthi"
 title: "Narjes Mathlouthi"
-output_dir: "docs"
+output_dir: docs
 theme: "css/theme.css"
 navbar:
   search: true
@@ -22,16 +22,16 @@ navbar:
       href: index.html
       icon: fa-home
     - text: "Teaching"
-      href: teaching/
+      href: teaching.html
       icon: fa-chalkboard-teacher
     - text: "Projects"
-      href: projects/
+      href: projects.html
       icon: fa-folder-open
     - text: "Research"
-      href: research/
+      href: research.html
       icon: fa-flask
     - text: "CV"
-      href: cv/
+      href: cv.html
       icon: fa-file
 
 output: distill::distill_article

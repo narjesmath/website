@@ -2353,7 +2353,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   .btn:focus {
     background-color: #F082AC;
   }
-
   /* Profile card on home page */
   .card {
     display: flex;
@@ -2367,7 +2366,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   }
 
   .card-img {
-    flex: 0 0 300px;      /* fixed 300px wide */
+    flex: 0 0 100px;      /* fixed 300px wide */
     width: 100%;
     height: auto;
     object-fit: cover;
@@ -2398,6 +2397,49 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     line-height: 1.6;
     color: var(--body-color);
     font-size: var(--body-size);
+  }
+
+  /* Container for two cards */
+  .profile-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 2rem auto;
+  }
+
+  /* Text card should flexibly fill the space */
+  .text-card {
+    flex: 2 1 400px;  /* grows twice as much, min-width ~400px */
+  }
+
+  /* Image card is fixed width, but shrinks on mobile */
+  .image-card {
+    flex: 0 0 300px;  /* don’t grow, fixed at 300px */
+  }
+
+  /* reuse your existing card styling */
+  .text-card,
+  .image-card {
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
+
+  /* ensure the image fills its card */
+  .image-card .card-img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* padding for text content */
+  .text-card .card-content {
+    padding: 1.5rem;
+    color: var(--body-color);
+    font-size: var(--body-size);
+    line-height: 1.6;
   }
 
   /* Hyperlink colors */
@@ -2659,16 +2701,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <a href="index.html" aria-label="Home">
 <i class="fa fa-home" aria-hidden="true"></i>
 </a>
-<a href="teaching/" aria-label="Teaching">
+<a href="teaching.html" aria-label="Teaching">
 <i class="fa fa-chalkboard-teacher" aria-hidden="true"></i>
 </a>
-<a href="projects/" aria-label="Projects">
+<a href="projects.html" aria-label="Projects">
 <i class="fa fa-folder-open" aria-hidden="true"></i>
 </a>
-<a href="research/" aria-label="Research">
+<a href="research.html" aria-label="Research">
 <i class="fa fa-flask" aria-hidden="true"></i>
 </a>
-<a href="cv/" aria-label="CV">
+<a href="cv.html" aria-label="CV">
 <i class="fa fa-file" aria-hidden="true"></i>
 </a>
 <input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>

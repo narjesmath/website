@@ -88,26 +88,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>Narjes Mathlouthi: Teaching</title>
+  <title>Narjes Mathlouthi: About Me</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Narjes Mathlouthi: Teaching"/>
+  <meta property="og:title" content="Narjes Mathlouthi: About Me"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Narjes Mathlouthi"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Narjes Mathlouthi: Teaching"/>
+  <meta property="twitter:title" content="Narjes Mathlouthi: About Me"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Teaching"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","output"]}},"value":[{"type":"character","attributes":{},"value":["About Me"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["html_document"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","css"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["css/theme.css"]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2353,7 +2353,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   .btn:focus {
     background-color: #F082AC;
   }
-
   /* Profile card on home page */
   .card {
     display: flex;
@@ -2367,7 +2366,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   }
 
   .card-img {
-    flex: 0 0 300px;      /* fixed 300px wide */
+    flex: 0 0 100px;      /* fixed 300px wide */
     width: 100%;
     height: auto;
     object-fit: cover;
@@ -2398,6 +2397,49 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     line-height: 1.6;
     color: var(--body-color);
     font-size: var(--body-size);
+  }
+
+  /* Container for two cards */
+  .profile-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 2rem auto;
+  }
+
+  /* Text card should flexibly fill the space */
+  .text-card {
+    flex: 2 1 400px;  /* grows twice as much, min-width ~400px */
+  }
+
+  /* Image card is fixed width, but shrinks on mobile */
+  .image-card {
+    flex: 0 0 300px;  /* don’t grow, fixed at 300px */
+  }
+
+  /* reuse your existing card styling */
+  .text-card,
+  .image-card {
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
+
+  /* ensure the image fills its card */
+  .image-card .card-img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* padding for text content */
+  .text-card .card-content {
+    padding: 1.5rem;
+    color: var(--body-color);
+    font-size: var(--body-size);
+    line-height: 1.6;
   }
 
   /* Hyperlink colors */
@@ -2647,7 +2689,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Teaching","authors":[]}
+{"title":"About Me","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2659,16 +2701,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <a href="index.html" aria-label="Home">
 <i class="fa fa-home" aria-hidden="true"></i>
 </a>
-<a href="teaching/" aria-label="Teaching">
+<a href="teaching.html" aria-label="Teaching">
 <i class="fa fa-chalkboard-teacher" aria-hidden="true"></i>
 </a>
-<a href="projects/" aria-label="Projects">
+<a href="projects.html" aria-label="Projects">
 <i class="fa fa-folder-open" aria-hidden="true"></i>
 </a>
-<a href="research/" aria-label="Research">
+<a href="research.html" aria-label="Research">
 <i class="fa fa-flask" aria-hidden="true"></i>
 </a>
-<a href="cv/" aria-label="CV">
+<a href="cv.html" aria-label="CV">
 <i class="fa fa-file" aria-hidden="true"></i>
 </a>
 <input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
@@ -2695,7 +2737,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Teaching</h1>
+<h1>About Me</h1>
 
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
@@ -2704,70 +2746,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
 <div class="d-article">
-<hr />
-<h2 id="teaching-assistant">Teaching Assistant</h2>
-<p><strong>Applied Statistics for Geography (GEOG 279)</strong> <em>(Graduate‑level course)</em>, Department of Geography, UCSB<br />
-<em>Santa Barbara, CA</em><br />
-<strong>Sep 2024 – Dec 2024</strong></p>
-<ul>
-<li><p>Developed and deployed the course website:<br />
-<a href="https://geog279-advanced-spatial-statistics.github.io/geog279.github.io/"
-   class="btn">
-View Course Site
-</a></p></li>
-<li><p>Prepared bi-weekly assignments, labs, and grading rubrics.</p></li>
-</ul>
-<hr />
-<h2 id="associate-student-instructor">Associate Student Instructor</h2>
-<p><strong>The Geography of Surfing</strong>, Department of Geography, UCSB<br />
-<em>Santa Barbara, CA</em><br />
-<strong>Jan 2024 – Mar 2024</strong></p>
-<ul>
-<li><p>Developed comprehensive course content (exams, assignments, guest‐speaker coordination, documentary screenings) for ~300 students.</p></li>
-<li><p>Managed a team of 4 TAs, overseeing grading, office hours, and student support.</p></li>
-<li><p>Enhanced engagement by integrating multimedia and interactive activities.</p></li>
-</ul>
-<hr />
-<h2 id="instructor-administrative-assistant">Instructor Administrative Assistant</h2>
-<p><strong>Introduction to Economics</strong>, Department of Economics, UCSB<br />
-<em>Santa Barbara, CA</em><br />
-<strong>Jan 2023 – Jun 2023</strong></p>
-<ul>
-<li><p>Orchestrated section schedules and materials for four TAs.</p></li>
-<li><p>Maintained Gauchospace course site: uploaded content, scheduled exams, and streamlined grading.</p></li>
-<li><p>Held weekly office hours to support students’ questions and project work.</p></li>
-</ul>
-<hr />
-<h2 id="teaching-assistant-1">Teaching Assistant</h2>
-<p><strong>Department of Environmental Studies</strong>, UCSB<br />
-<em>Santa Barbara, CA</em><br />
-<strong>Sep 2022 – Dec 2023</strong></p>
-<ul>
-<li><p>Led three discussion sections (150+ students) and developed materials in Python, LaTeX, R, and Quarto.</p></li>
-<li><p>Designed and graded problem sets on externalities, public goods, game theory, and resource management.</p></li>
-<li><p>Delivered a guest lecture on <em>“Externalities &amp; Public Goods”</em> in introductory Environmental Economics.</p></li>
-</ul>
-<hr />
-<h2 id="teaching-assistant-2">Teaching Assistant</h2>
-<p><strong>Introduction to Economics</strong>, Department of Economics, UCSB<br />
-<em>Santa Barbara, CA</em><br />
-<strong>Oct 2021 – Jun 2022</strong></p>
-<ul>
-<li><p>Led two sections (150+ students), created worksheets and slide decks.</p></li>
-<li><p>Graded assignments and exams; provided feedback on problem‑set solutions.</p></li>
-<li><p>Guest‑lectured on <em>“Externalities &amp; Public Goods”</em> and <em>“Stackelberg vs. Cournot Oligopoly.”</em></p></li>
-</ul>
-<hr />
-<h2 id="excel-workshop-assistant">Excel Workshop Assistant</h2>
-<p><strong>UCSB Bren School</strong>, UCSB<br />
-<em>Santa Barbara, CA</em><br />
-<strong>Oct 2022</strong></p>
-<ul>
-<li><p>Co‑taught Excel workshops from basics through macros and pivot tables.</p></li>
-<li><p>Demonstrated data retrieval and analysis via BigQuery.</p></li>
-<li><p>Guided students on formula construction, charting, and regression tools.</p></li>
-</ul>
+<div class="card">
+<p><img src="images/narjes.jpg" class="card-img" style="width:150px; height:auto;" /></p>
+<div class="card-content">
+<p>I am a second‑year PhD student in the <a href="https://www.geog.ucsb.edu/about" target="_blank">Department of Geography</a> and a Master’s candidate in Mathematical Probability and Statistics in the PSTAT department at UCSB.</p>
+<p>Previously, I earned a Master’s in Environmental Science and Management from UCSB’s Bren School and a Bachelor’s in Environmental Economics and Policy from UC Berkeley.</p>
+<p>My research interests span the integration of advanced computational methods (including machine learning and statistical modeling), geospatial and remote‑sensing techniques, and interdisciplinary socioeconomic analysis to tackle complex challenges in food security, natural resource management, and climate resilience across diverse settings. I have interned at the National Energy Technology Laboratory (NETL), developing predictive models for high‑temperature alloys, and served as a grants officer for the Global Fund for Women, managing diverse portfolios and liaising with a variety of stakeholders.</p>
+<p>Within academia, I contribute as a teaching assistant and associate student instructor at UCSB, delivering content across multiple departments and disciplines.</p>
+</div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+</div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
