@@ -1,0 +1,12 @@
+---
+title: "Research"
+output:
+  html_document:
+    self_contained: false   # keep CSS external
+    css: css/theme.css
+---
+
+
+
+
+My research harnesses geospatial analytics—from satellite remote sensing to machine learning and AI—to explore how cascading climate extremes shape vulnerability across landscapes and societies. I’m drawn to questions at the intersection of climate dynamics, food systems, and equity, aiming to craft adaptable, inclusive strategies that build resilience and foster sustainable outcomes amid future uncertainties.

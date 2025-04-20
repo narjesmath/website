@@ -1,0 +1,57 @@
+---
+title: "CV"
+icon: fa-file-pdf-o
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+<div class="resume">
+  <!-- Download Button -->
+  <button onclick="window.open('pdfs/Mathlouthi_Narjes_Resume.pdf', '_blank')">Download CV</button>
+
+  <!-- Education Section -->
+  <section class="edu">
+    <h3><i class="fa fa-graduation-cap"></i> Education</h3>
+    <ul>
+      <li>
+        <strong>Ph.D. in Geography</strong> (Expected June 2028)<br>
+        University of California, Santa Barbara (UCSB)
+      </li>
+      <li>
+        <strong>M.A. in Statistics (PSTAT)</strong> (Expected June 2025)<br>
+        University of California, Santa Barbara (UCSB)
+      </li>
+      <li>
+        <strong>Master of Environmental Science & Management (MESM)</strong> (Sep 2021 – Jun 2023)<br>
+        Bren School of Environmental Science & Management, UCSB
+      </li>
+      <li>
+        <strong>B.S. in Environmental Economics & Policy</strong> (Aug 2014 – Dec 2016)<br>
+        University of California, Berkeley
+      </li>
+    </ul>
+  </section>
+
+  <!-- Experience Section (fill in later) -->
+  <section class="experience">
+    <h3><i class="fa fa-briefcase"></i> Experience</h3>
+    <!-- Add positions with <h4>Role</h4>, <p>Details</p> here -->
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills-prog">
+    <h3><i class="fas fa-code"></i> Programming Skills</h3>
+    <p>Python, R, SQL, GIS, JavaScript, Bash, C, HTML, CSS, Salesforce CRM</p>
+  </section>
+
+  <!-- Interests Section -->
+  <section class="interests">
+    <h3><i class="fas fa-star"></i> Interests</h3>
+    <ul class="interests-items">
+      <li><i class="fas fa-palette"></i> Art</li>
+      <li><i class="fas fa-book"></i> Books</li>
+      <li><i class="fas fa-film"></i> Movies</li>
+      <li><i class="fas fa-headphones"></i> Music</li>
+    </ul>
+  </section>
+</div>

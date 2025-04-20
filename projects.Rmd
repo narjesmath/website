@@ -1,0 +1,93 @@
+---
+title: "Projects"
+output:
+  html_document:
+    self_contained: false   # keep CSS external
+    css: css/theme.css
+---
+
+<html>
+  
+<body>
+<section class="projects" id="projects">
+<h2 class="projects-title"> Recent Projects</h2>
+
+<section class="projects" id="projects">
+<h2 class="projects-title"> Older Projects</h2>
+
+<div class="projects-container">
+<div class="project-container project-card">
+<p class="project-details">
+<h3 class="project-title">California Oil Spill (2008) </h3>
+<img
+src="images/caoilspill.png" style="width:50%" loading="lazy"
+class="project-pic"/>
+<br>
+<a  target="_blank" href="ca_oil_spill_2008.html">Here</a>
+</br>
+</p>
+</div>
+</div>
+<div class="projects-container">
+<div class="project-container project-card">
+<p class="project-details">
+<h3 class="project-title"> Sentiment Analysis </h3>
+<img
+src="images/sentiment_analysis_words.png" style="width:50%" loading="lazy"
+class="project-pic"/>
+<br>
+<a  target="_blank" href="sentiment_analysis.html">Here</a>
+</br>
+</p>
+</div>
+</div>
+
+<div class="projects-container">
+<div class="project-container project-card">
+<p class="project-details">
+<h3 class="project-title">Willamette Falls Fish Passage </h3>
+<img
+src="images/willamette_falls_map.png" style="width:50%" loading="lazy"
+class="project-pic"/>
+<br>
+<a  target="_blank" href="fish_passage.html">Here</a>
+</br>
+</p>
+</div>
+
+<div class="projects-container">
+<div class="project-container project-card">
+<p class="project-details">
+<h3 class="project-title"> Binary Logistic Analysis </h3>
+<img
+src="images/blr.png" style="width:50%" loading="lazy"
+class="project-pic"/>
+<br>
+<a  target="_blank" href="binary_logistic_regression.html">Here</a>
+</br>
+</p>
+</div>
+</div>
+
+
+<div class="projects-container">
+<div class="project-container project-card">
+<p class="project-details">
+<h3 class="project-title">Juvenile Snowhare Count </h3>
+<img
+src="images/map_of_bonanza_creek_alaska.png" style="width:50%" loading="lazy"
+class="project-pic"/>
+<br>
+<a  target="_blank" href="narjes_mathlouthi_snowshoe_report.html">Here</a>
+</br>
+</p>
+</div>
+</div>
+
+
+
+</div>
+</section>
+</html>
+  
+</body>
