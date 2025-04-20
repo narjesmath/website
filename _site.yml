@@ -22,7 +22,7 @@ navbar:
       href: index.html
       icon: fa-home
     - text: "Teaching"
-      href: teaching.html
+      href: teaching/
       icon: fa-chalkboard-teacher
     - text: "Projects"
       href: projects.html
