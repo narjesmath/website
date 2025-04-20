@@ -1,7 +1,9 @@
 ---
 site: distill::distill_site
 title: "Teaching"
-output: distill::distill_article
+output: distill::distill_article:
+  self_contained: false   # keep CSS external
+  css: css/theme.css
 ---
 
 
