@@ -1,7 +1,8 @@
 ---
-site: distill::distill_site
 title: "CV"
-output: distill::distill_article
+output:
+  html_document:
+  css: css/theme.css
 ---
 <div class="resume">
   <!-- Download Button -->
