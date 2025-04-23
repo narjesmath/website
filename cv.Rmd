@@ -7,7 +7,7 @@ output:
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <div class="resume">
 <!-- Download Button -->
-<a href="pdfs/Narjes_Mathlouthi_CV.pdf" target="_blank" class="download-btn">
+<a href="pdfs/nm_cv.pdf" target="_blank" class="download-btn">
   <i class="fa fa-download"></i> Download CV
 </a>
 
