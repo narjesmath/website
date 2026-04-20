@@ -1,0 +1,241 @@
+/* =========================================================
+   Site-wide enhancements: dark mode, back-to-top FAB,
+   theme toggle, CV expand/collapse-all, print stylesheet.
+   Loaded on every page via <link rel="stylesheet">.
+   ========================================================= */
+
+/* ---------- Dark mode palette ---------- */
+html[data-theme="dark"] {
+  --body-color: rgba(255,255,255,0.86) !important;
+  --header-color: #BFBBFF !important;
+  --title-color: #BFBBFF !important;
+  --heading-color: #BFBBFF !important;
+  --text-color: rgba(255,255,255,0.82) !important;
+  --aside-color: rgba(255,255,255,0.6) !important;
+  --fig-cap-color: rgba(255,255,255,0.6) !important;
+  --link-color: #9D98FF !important;
+  --link-hover-color: #C9C5FF !important;
+  color-scheme: dark;
+}
+
+html[data-theme="dark"] body,
+html[data-theme="dark"] .d-article,
+html[data-theme="dark"] d-article,
+html[data-theme="dark"] main {
+  background-color: #0E1020 !important;
+  color: rgba(255,255,255,0.86) !important;
+}
+
+html[data-theme="dark"] .distill-site-header {
+  --text-color: #E7E5FF !important;
+  --hover-color: #BFBBFF !important;
+  --bkgd-color: #0E1020 !important;
+  background-color: #0E1020 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+html[data-theme="dark"] .distill-site-header a { color: #E7E5FF !important; }
+
+html[data-theme="dark"] .distill-site-footer {
+  --bkgd-color: #15172A !important;
+  --text-color: #BFBBFF !important;
+  background-color: #15172A !important;
+  color: #BFBBFF !important;
+}
+
+/* Cards + panels in dark */
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .edu-block,
+html[data-theme="dark"] .exp-block,
+html[data-theme="dark"] .teach-block,
+html[data-theme="dark"] .project-card {
+  background-color: #181A2E !important;
+  border-color: rgba(159,155,255,0.18) !important;
+  color: rgba(255,255,255,0.86) !important;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.2) !important;
+}
+
+html[data-theme="dark"] .card::before {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.18) 1px, transparent 1.6px),
+    linear-gradient(160deg, #2A2547 0%, #2E2352 45%, #1E2748 100%) !important;
+}
+html[data-theme="dark"] .card::after {
+  background: radial-gradient(circle at center, rgba(159,155,255,0.22) 0%, rgba(159,155,255,0) 70%) !important;
+}
+
+/* CV headings keep their per-section colors but on dark bg we lift lightness */
+html[data-theme="dark"] .cv-section h3 { color: #BFBBFF !important; border-bottom-color: rgba(191,187,255,0.35) !important; }
+html[data-theme="dark"] .cv-section h3 i { background: rgba(191,187,255,0.15) !important; color: #BFBBFF !important; }
+html[data-theme="dark"] section.edu.cv-section h3 { color: #B4AFFF !important; }
+html[data-theme="dark"] section.experience.cv-section h3,
+html[data-theme="dark"] section.exp.cv-section h3 { color: #D2B4FF !important; }
+html[data-theme="dark"] section.skills-prog.cv-section h3 { color: #9EC7FF !important; }
+html[data-theme="dark"] section.interests.cv-section h3 { color: #B9C0FF !important; }
+
+html[data-theme="dark"] .edu-inst,
+html[data-theme="dark"] .exp-inst,
+html[data-theme="dark"] .edu-head .edu-date,
+html[data-theme="dark"] .exp-head .exp-date,
+html[data-theme="dark"] .edu ul.edu-bullets li,
+html[data-theme="dark"] .exp ul.exp-bullets li { color: rgba(255,255,255,0.78) !important; }
+
+html[data-theme="dark"] .skill-row { background: rgba(255,255,255,0.04) !important; border-color: rgba(255,255,255,0.1) !important; color: rgba(255,255,255,0.86) !important; }
+html[data-theme="dark"] .skill-label { background: rgba(159,155,255,0.18) !important; color: #BFBBFF !important; }
+html[data-theme="dark"] .interests-items li { background: rgba(159,155,255,0.15) !important; color: #D7D4FF !important; border-color: rgba(159,155,255,0.22) !important; }
+html[data-theme="dark"] .interests-items li i { color: #BFBBFF !important; }
+
+/* Projects cards / summary banners in dark */
+html[data-theme="dark"] .project-title-text a,
+html[data-theme="dark"] .project-title-text { color: #E7E5FF !important; }
+html[data-theme="dark"] .project-desc { color: rgba(255,255,255,0.75) !important; }
+html[data-theme="dark"] .project-cta { background: rgba(159,155,255,0.18) !important; color: #D7D4FF !important; }
+html[data-theme="dark"] .project-cta:hover { background: #6A66D5 !important; color: #fff !important; }
+
+/* Teaching cards in dark */
+html[data-theme="dark"] h4.teach-course, html[data-theme="dark"] .teach-course { color: #E7E5FF !important; }
+html[data-theme="dark"] .teach-inst { color: rgba(255,255,255,0.72) !important; }
+html[data-theme="dark"] .teach-date { background: rgba(159,155,255,0.15) !important; color: #D7D4FF !important; }
+html[data-theme="dark"] .teach-bullets li { color: rgba(255,255,255,0.8) !important; }
+
+/* Horizontal rules */
+html[data-theme="dark"] hr { border-color: rgba(255,255,255,0.1) !important; }
+
+/* Links */
+html[data-theme="dark"] a { color: #9D98FF !important; }
+html[data-theme="dark"] a:hover { color: #C9C5FF !important; }
+
+/* ---------- Floating theme toggle ---------- */
+.site-theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(106,102,213,0.25);
+  background: #fff;
+  color: #6A66D5;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease, color 0.2s ease;
+  padding: 0;
+}
+.site-theme-toggle:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.16); }
+.site-theme-toggle:focus-visible { outline: 2px solid #6A66D5; outline-offset: 2px; }
+html[data-theme="dark"] .site-theme-toggle {
+  background: #181A2E;
+  color: #E7E5FF;
+  border-color: rgba(159,155,255,0.35);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* ---------- Back-to-top FAB ---------- */
+.site-back-to-top {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 1000;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: #6A66D5;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(106,102,213,0.4);
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+  padding: 0;
+}
+.site-back-to-top.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.site-back-to-top:hover { background: #5753C0; }
+.site-back-to-top:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+html[data-theme="dark"] .site-back-to-top { background: #9D98FF; color: #0E1020; box-shadow: 0 4px 14px rgba(159,155,255,0.45); }
+html[data-theme="dark"] .site-back-to-top:hover { background: #BFBBFF; }
+
+/* ---------- CV: Expand/Collapse all controls ---------- */
+.cv-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin: 0 0 1.25rem;
+}
+.cv-controls .cv-toggle-all {
+  font-family: var(--body-font, inherit);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #6A66D5;
+  background: rgba(106,102,213,0.08);
+  border: 1px solid rgba(106,102,213,0.2);
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.cv-controls .cv-toggle-all:hover { background: #6A66D5; color: #fff; }
+.cv-controls .cv-toggle-all:focus-visible { outline: 2px solid #6A66D5; outline-offset: 2px; }
+html[data-theme="dark"] .cv-controls .cv-toggle-all { color: #BFBBFF; background: rgba(159,155,255,0.12); border-color: rgba(159,155,255,0.3); }
+html[data-theme="dark"] .cv-controls .cv-toggle-all:hover { background: #9D98FF; color: #0E1020; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .site-back-to-top,
+  .site-theme-toggle,
+  .cv-controls .cv-toggle-all { transition: none !important; }
+}
+
+/* ---------- Print stylesheet ---------- */
+@media print {
+  html, body { background: #fff !important; color: #000 !important; }
+  .distill-site-header,
+  .distill-site-footer,
+  nav,
+  .site-theme-toggle,
+  .site-back-to-top,
+  .cv-controls,
+  footer a[href="#"],
+  footer { display: none !important; }
+
+  /* Force all collapsible sections open */
+  details { display: block !important; }
+  details > summary { display: block !important; pointer-events: none !important; }
+  details:not([open]) > :not(summary) { display: revert !important; }
+  details > summary::after,
+  details > summary h3::after { display: none !important; content: none !important; }
+
+  /* Article width + typography for print */
+  .d-article, d-article, main, .resume { max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+  a { color: #000 !important; text-decoration: underline; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #555; }
+
+  /* Card: remove side gradient for print */
+  .card { box-shadow: none !important; border: 1px solid #ccc !important; }
+  .card::before, .card::after { display: none !important; }
+
+  /* CV cards: keep ribbon accent as black bar so structure reads on paper */
+  .edu-block, .exp-block, .project-card, .teach-block {
+    break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    background: #fff !important;
+  }
+  .edu-block::before, .exp-block::before, .project-card::before, .teach-block::before {
+    background: #333 !important;
+  }
+
+  h1, h2, h3, h4 { break-after: avoid; }
+}
