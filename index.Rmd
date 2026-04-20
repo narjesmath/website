@@ -11,13 +11,11 @@ output:
 ![](images/narjes.jpg){.card-img style="width:150px; height:auto;"}
 
 ::: {.card-content}
-I am a second‑year PhD student in the [Department of Geography](https://www.geog.ucsb.edu/about){target="_blank"} and a Master’s candidate in the Probability and Statistics (PSTAT) department at the University of California Santa Barbara (UCSB).
+I am a third-year PhD researcher in the [Department of Geography](https://www.geog.ucsb.edu/about){target="_blank"} at the University of California, Santa Barbara, and a Graduate Student Researcher with the [Climate Hazards Center](https://www.chc.ucsb.edu/){target="_blank"}. My research lies at the intersection of climate science, remote sensing, and AI/ML, with an emphasis on extreme climate events, environmental risk, and decision-relevant modeling. I also completed a Master’s in Mathematical Statistics at UCSB, with additional graduate training in applied statistics and data science.
 
-Previously, I earned a Master’s in Environmental Science and Management from UCSB’s Bren School and a Bachelor’s in Environmental Economics and Policy from UC Berkeley.
+Using satellite data, geospatial methods, and statistical and machine learning approaches, I develop quantitative frameworks to detect, model, and better understand droughts, floods, and other climate extremes. My broader interests include climate resilience, early warning, and the socioeconomic impacts of environmental risk, particularly in vulnerable and developing regions.
 
-My research interests span the integration of advanced computational methods (including machine learning and statistical modeling), geospatial and remote‑sensing techniques, and interdisciplinary socioeconomic analysis to tackle complex challenges in food security, natural resource management, and climate resilience across diverse settings. I have interned at the National Energy Technology Laboratory (NETL), developing predictive models for high‑temperature alloys, and served as a grants officer for Global Fund for Women, managing diverse portfolios and liaising with a variety of stakeholders.
-
-Within academia, I contribute as a teaching assistant and associate student instructor at UCSB, delivering content across multiple departments and disciplines.
+Before my PhD, I earned a Master’s in Environmental Science and Management from UCSB’s Bren School and a Bachelor’s in Environmental Economics and Policy from UC Berkeley. My experience spans academic, government, and nonprofit settings, including research at the National Energy Technology Laboratory and grants management at Global Fund for Women. I also teach at UCSB across multiple departments and disciplines.
 :::
 
 
