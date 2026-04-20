@@ -11,10 +11,14 @@ output:
 
 <div class="teach-block">
   <div class="teach-head">
-    <span class="teach-role">Teaching Assistant — <em>Remote Sensing of the Environment II (GEOG 115B)</em></span>
-    <span class="teach-date">January – March 2026</span>
+    <h4 class="teach-course">Remote Sensing of the Environment II <span class="teach-code">(GEOG 115B)</span></h4>
+    <span class="teach-date">Jan – Mar 2026</span>
   </div>
-  <p class="teach-meta">Department of Geography, University of California, Santa Barbara · Santa Barbara, CA</p>
+  <p class="teach-meta">
+    <span class="teach-role">Teaching Assistant</span>
+    Department of Geography, University of California, Santa Barbara
+    <span class="teach-sep">·</span> Santa Barbara, CA
+  </p>
   <ul class="teach-bullets">
     <li>Led labs for 15 students and prepared lab materials on satellite imagery, image classification, geometric and radiometric correction, and the analysis of optical, thermal, LiDAR, and radar data.</li>
     <li>Graded assignments and supported applied remote sensing instruction through hands-on laboratory teaching.</li>
@@ -23,10 +27,14 @@ output:
 
 <div class="teach-block">
   <div class="teach-head">
-    <span class="teach-role">Instructor of Record — <em><a href="https://pstat5a.com/" target="_blank">PSTAT 5A: Understanding Data</a></em></span>
-    <span class="teach-date">June – August 2025</span>
+    <h4 class="teach-course"><a href="https://pstat5a.com/" target="_blank">PSTAT 5A: Understanding Data</a></h4>
+    <span class="teach-date">Jun – Aug 2025</span>
   </div>
-  <p class="teach-meta">Department of Statistics and Applied Probability, University of California, Santa Barbara · Santa Barbara, CA</p>
+  <p class="teach-meta">
+    <span class="teach-role">Instructor of Record</span>
+    Department of Statistics and Applied Probability, University of California, Santa Barbara
+    <span class="teach-sep">·</span> Santa Barbara, CA
+  </p>
   <ul class="teach-bullets">
     <li>Designed and taught an undergraduate statistics course covering statistical inference, hypothesis testing, confidence intervals, and regression for 32 students.</li>
     <li>Supervised 2 teaching assistants and managed course delivery, grading, and student support.</li>
@@ -35,22 +43,30 @@ output:
 
 <div class="teach-block">
   <div class="teach-head">
-    <span class="teach-role">Teaching Assistant — <em>Applied Statistics for Geography (GEOG 279)</em></span>
-    <span class="teach-date">September – December 2024</span>
+    <h4 class="teach-course">Applied Statistics for Geography <span class="teach-code">(GEOG 279)</span></h4>
+    <span class="teach-date">Sep – Dec 2024</span>
   </div>
-  <p class="teach-meta">Department of Geography, University of California, Santa Barbara · Santa Barbara, CA</p>
+  <p class="teach-meta">
+    <span class="teach-role">Teaching Assistant</span>
+    Department of Geography, University of California, Santa Barbara
+    <span class="teach-sep">·</span> Santa Barbara, CA
+  </p>
   <ul class="teach-bullets">
-    <li>Developed and deployed the <a href="https://geog279-advanced-spatial-statistics.github.io/geog279.github.io/" target="_blank">course website</a>.</li>
-    <li>Prepared bi-weekly assignments, labs, and grading rubrics for graduate students in spatial statistics.</li>
+    <li>Developed and deployed the <a href="https://geog279-advanced-spatial-statistics.github.io/geog279.github.io/" target="_blank">course website</a> for a graduate seminar in spatial statistics.</li>
+    <li>Prepared bi-weekly assignments, labs, and grading rubrics.</li>
   </ul>
 </div>
 
 <div class="teach-block">
   <div class="teach-head">
-    <span class="teach-role">Associate Student Instructor — <em>The Geography of Surfing</em></span>
-    <span class="teach-date">January – March 2024</span>
+    <h4 class="teach-course">The Geography of Surfing</h4>
+    <span class="teach-date">Jan – Mar 2024</span>
   </div>
-  <p class="teach-meta">Department of Geography, University of California, Santa Barbara · Santa Barbara, CA</p>
+  <p class="teach-meta">
+    <span class="teach-role">Associate Student Instructor</span>
+    Department of Geography, University of California, Santa Barbara
+    <span class="teach-sep">·</span> Santa Barbara, CA
+  </p>
   <ul class="teach-bullets">
     <li>Developed comprehensive course content (exams, assignments, guest-speaker coordination, documentary screenings) for approximately 300 students.</li>
     <li>Managed a team of 4 teaching assistants, overseeing grading, office hours, and student support.</li>
@@ -60,10 +76,14 @@ output:
 
 <div class="teach-block">
   <div class="teach-head">
-    <span class="teach-role">Instructor Administrative Assistant — <em>Introduction to Economics</em></span>
-    <span class="teach-date">January – June 2023</span>
+    <h4 class="teach-course">Introduction to Economics</h4>
+    <span class="teach-date">Jan – Jun 2023</span>
   </div>
-  <p class="teach-meta">Department of Economics, University of California, Santa Barbara · Santa Barbara, CA</p>
+  <p class="teach-meta">
+    <span class="teach-role">Instructor Administrative Assistant</span>
+    Department of Economics, University of California, Santa Barbara
+    <span class="teach-sep">·</span> Santa Barbara, CA
+  </p>
   <ul class="teach-bullets">
     <li>Coordinated section schedules and instructional materials for four teaching assistants.</li>
     <li>Maintained the GauchoSpace course site: uploaded content, scheduled exams, and streamlined grading workflows.</li>
@@ -73,10 +93,14 @@ output:
 
 <div class="teach-block">
   <div class="teach-head">
-    <span class="teach-role">Excel Workshop Assistant</span>
-    <span class="teach-date">October 2022</span>
+    <h4 class="teach-course">Excel Workshops</h4>
+    <span class="teach-date">Oct 2022</span>
   </div>
-  <p class="teach-meta">Bren School of Environmental Science &amp; Management, University of California, Santa Barbara · Santa Barbara, CA</p>
+  <p class="teach-meta">
+    <span class="teach-role">Workshop Assistant</span>
+    Bren School of Environmental Science &amp; Management, University of California, Santa Barbara
+    <span class="teach-sep">·</span> Santa Barbara, CA
+  </p>
   <ul class="teach-bullets">
     <li>Co-taught Excel workshops ranging from fundamentals to macros and pivot tables.</li>
     <li>Demonstrated data retrieval and analysis via BigQuery.</li>
@@ -86,10 +110,14 @@ output:
 
 <div class="teach-block">
   <div class="teach-head">
-    <span class="teach-role">Teaching Assistant — <em>Environmental Economics</em></span>
-    <span class="teach-date">September – December 2022</span>
+    <h4 class="teach-course">Environmental Economics</h4>
+    <span class="teach-date">Sep – Dec 2022</span>
   </div>
-  <p class="teach-meta">Department of Environmental Studies, University of California, Santa Barbara · Santa Barbara, CA</p>
+  <p class="teach-meta">
+    <span class="teach-role">Teaching Assistant</span>
+    Department of Environmental Studies, University of California, Santa Barbara
+    <span class="teach-sep">·</span> Santa Barbara, CA
+  </p>
   <ul class="teach-bullets">
     <li>Led three discussion sections (150+ students) and developed materials in Python, LaTeX, R, and Quarto.</li>
     <li>Designed and graded problem sets on externalities, public goods, game theory, and resource management.</li>
@@ -99,10 +127,14 @@ output:
 
 <div class="teach-block">
   <div class="teach-head">
-    <span class="teach-role">Teaching Assistant — <em>Introduction to Economics</em></span>
-    <span class="teach-date">October 2021 – June 2022</span>
+    <h4 class="teach-course">Introduction to Economics</h4>
+    <span class="teach-date">Oct 2021 – Jun 2022</span>
   </div>
-  <p class="teach-meta">Department of Economics, University of California, Santa Barbara · Santa Barbara, CA</p>
+  <p class="teach-meta">
+    <span class="teach-role">Teaching Assistant</span>
+    Department of Economics, University of California, Santa Barbara
+    <span class="teach-sep">·</span> Santa Barbara, CA
+  </p>
   <ul class="teach-bullets">
     <li>Led two sections (150+ students); created worksheets and slide decks.</li>
     <li>Graded assignments and exams; provided feedback on problem-set solutions.</li>
