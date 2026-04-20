@@ -2799,12 +2799,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 .cv-section { margin-bottom: 2.5rem; }
 
 /* ========== Collapsible section wrapper ========== */
-.cv-section > details { margin: 0; }
+.cv-section > details { margin: 0; background: transparent !important; border-radius: 0 !important; }
 .cv-section > details > summary {
   list-style: none;
   cursor: pointer;
   outline: none;
   -webkit-tap-highlight-color: transparent;
+  /* override Distill's default summary styling (gradient banner + white text) */
+  background: transparent !important;
+  background-image: none !important;
+  color: inherit !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  font-weight: normal !important;
+}
+.cv-section > details[open] > summary { border-radius: 0 !important; }
+/* kill the default arrow image from the base stylesheet */
+.cv-section > details > summary::after,
+.cv-section > details[open] > summary::after {
+  content: none !important;
+  background: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  transform: none !important;
 }
 .cv-section > details > summary::-webkit-details-marker { display: none; }
 .cv-section > details > summary::marker { content: ""; }

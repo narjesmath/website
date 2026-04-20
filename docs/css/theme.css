@@ -238,14 +238,43 @@ d-appendix {
 }
 /* Profile card on home page */
 .card {
+  position: relative;
+  overflow: hidden;
   display: flex;
-  flex-wrap: wrap;      /* stacks on narrow viewports */
+  flex-wrap: wrap;
   align-items: flex-start;
   max-width: 800px;
   margin: 2rem auto;
   background: #fff;
+  border: 1px solid rgba(106,102,213,0.10);
   border-radius: 0.5rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 18px rgba(106,102,213,0.08), 0 1px 3px rgba(0,0,0,0.04);
+}
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 210px;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.55) 1px, transparent 1.6px),
+    linear-gradient(160deg, #EAE9FB 0%, #F1E9FB 45%, #E4EEFB 100%);
+  background-size: 14px 14px, 100% 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+.card::after {
+  content: "";
+  position: absolute;
+  top: -20px; right: -40px;
+  width: 180px; height: 180px;
+  background: radial-gradient(circle at center, rgba(139,92,199,0.10) 0%, rgba(139,92,199,0) 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+.card > * { position: relative; z-index: 1; }
+@media (max-width: 680px) {
+  .card::before { width: 100%; height: 170px; bottom: auto; }
+  .card::after { display: none; }
 }
 
 .card-img {
