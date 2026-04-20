@@ -36,7 +36,7 @@ Before my PhD, I earned a Master’s in Environmental Science and Management fro
 
   <!-- Back to Top Button -->
   <a href="#" style="
-    background-color: #1B4F72;
+    background-color: #6A66D5;
     color: white;
     padding: 6px 12px;
     border-radius: 5px;

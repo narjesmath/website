@@ -21,8 +21,8 @@ html {
   --aside-size:12px;
   --fig-cap-size:13px;
   /*-- Main font colors --*/
-  --title-color: #1B4F72;
-  --header-color:#1B4F72;                    /* edited */
+  --title-color: #6A66D5;
+  --header-color:#6A66D5;                    /* edited */
   --body-color:#404040;                    /* edited */
   --aside-color:rgba(0, 0, 0, 0.6);
   --fig-cap-color:rgba(0, 0, 0, 0.6);
@@ -70,13 +70,13 @@ d-appendix {
   --text-color:       #7e7b88;                   /* edited */
   --text-size:        15px;
   --hover-color:      white;
-  --bkgd-color:       #1B4F723d;                 /* edited */
+  --bkgd-color:       #6A66D53d;                 /* edited */
 }
 
 /*-- Additional custom styles --*/
 
 ul > li::marker {
-  color: #1B4F72;
+  color: #6A66D5;
 }
 
 .distill-site-header {
@@ -105,7 +105,7 @@ d-article h2,
 }
 
 d-appendix {
-  background-color: #F5F8FB;
+  background-color: #F6F5FC;
   border-top: none;
 }
 
@@ -193,13 +193,13 @@ d-appendix {
   font-weight: 600;
   letter-spacing: 0.02em;
   color: #fff;
-  background: #1B4F72;
+  background: #6A66D5;
   border-radius: 4px;
   text-decoration: none;
   transition: background 0.15s ease;
 }
 .project-cta:hover {
-  background: #143A55;
+  background: #4F4BB8;
   color: #fff;
 }
 .project-cta i {
@@ -207,7 +207,7 @@ d-appendix {
 }
 
 .btn {
-  background-color: #1B4F72;
+  background-color: #6A66D5;
   border-radius: 8px;
   border-style: none;
   box-sizing: border-box;
@@ -234,7 +234,7 @@ d-appendix {
 
 .btn:hover,
 .btn:focus {
-  background-color: #143A55;
+  background-color: #4F4BB8;
 }
 /* Profile card on home page */
 .card {
@@ -264,7 +264,7 @@ d-appendix {
   object-fit: cover;
   object-position: center 20%;
   border: 3px solid #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.12), 0 0 0 1px rgba(27,79,114,0.25);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.12), 0 0 0 1px rgba(106,102,213,0.25);
   margin: 1.25rem 0 0.5rem 1.5rem;
   border-top-left-radius: 50% !important;
   border-bottom-left-radius: 50% !important;
@@ -386,9 +386,9 @@ summary::-webkit-details-marker {
 }
 
 summary {
-  background-color: #1B4F72; /*#e792e7*/
-  background-image: linear-gradient(90deg, #1B4F72 0%, #F9E6E4 100%);
-  color: #F5F8FB;
+  background-color: #6A66D5; /*#e792e7*/
+  background-image: linear-gradient(90deg, #6A66D5 0%, #F9E6E4 100%);
+  color: #F6F5FC;
   border-radius: 5px;
 }
 
@@ -426,7 +426,7 @@ details code {font-size: 1.1em;}
 
 .download-btn {
   display: inline-block;
-  background-color: #1B4F72;
+  background-color: #6A66D5;
   color: white;
   padding: 10px 20px;
   text-decoration: none;
@@ -436,7 +436,7 @@ details code {font-size: 1.1em;}
 }
 
 .download-btn:hover {
-  background-color: #B7791F;
+  background-color: #B67CF5;
 }
 
 /* ---------- CV: shared section styling ---------- */
@@ -453,14 +453,14 @@ details code {font-size: 1.1em;}
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #1B4F72;
-  border-bottom: 1.5px solid #1B4F72;
+  color: #6A66D5;
+  border-bottom: 1.5px solid #6A66D5;
   padding-bottom: 0.35rem;
   margin: 0 0 1.1rem;
 }
 .cv-section h3 i {
   margin-right: 0.5rem;
-  color: #1B4F72;
+  color: #6A66D5;
 }
 
 /* ---------- CV Experience (mirrors Education layout) ---------- */
@@ -539,7 +539,7 @@ ul.exp-bullets {
   font-size: 0.88rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #1B4F72;
+  color: #6A66D5;
   line-height: 1.45;
 }
 .skill-items {
@@ -573,8 +573,8 @@ section.interests .interests-items li {
   align-items: center;
   gap: 0.45rem;
   padding: 0.35rem 0.85rem;
-  background: #EAF1F8;
-  color: #143A55;
+  background: #EAE9FB;
+  color: #4F4BB8;
   border-radius: 999px;
   font-size: 0.88rem;
   font-weight: 500;
@@ -582,7 +582,7 @@ section.interests .interests-items li {
   white-space: nowrap;
 }
 section.interests .interests-items li i {
-  color: #1B4F72;
+  color: #6A66D5;
   font-size: 0.85rem;
   width: 1.25em;
   min-width: 1.25em;
@@ -684,13 +684,13 @@ h4.teach-course,
 }
 .teach-course a {
   color: #1f1f1f;
-  border-bottom: 1px solid rgba(27,79,114, 0.35);
+  border-bottom: 1px solid rgba(106,102,213, 0.35);
   text-decoration: none;
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 .teach-course a:hover {
-  color: #1B4F72;
-  border-bottom-color: #1B4F72;
+  color: #6A66D5;
+  border-bottom-color: #6A66D5;
 }
 .teach-head .teach-date {
   flex: 0 0 auto;
@@ -714,7 +714,7 @@ p.teach-meta,
 }
 .teach-meta .teach-role {
   font-weight: 600;
-  color: #1B4F72;
+  color: #6A66D5;
   letter-spacing: 0.01em;
 }
 .teach-meta .teach-role::after {
@@ -742,21 +742,21 @@ ul.teach-bullets,
   margin-bottom: 0;
 }
 .teach-bullets li a {
-  color: #1B4F72;
+  color: #6A66D5;
   text-decoration: none;
-  border-bottom: 1px solid rgba(27,79,114, 0.3);
+  border-bottom: 1px solid rgba(106,102,213, 0.3);
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 .teach-bullets li a:hover {
-  color: #B7791F;
-  border-bottom-color: #B7791F;
+  color: #B67CF5;
+  border-bottom-color: #B67CF5;
 }
 
 .teach-quote {
   margin: 1rem 0 0;
   padding: 0.85rem 1.1rem 0.85rem 1.3rem;
-  background: #EAF1F8;
-  border-left: 3px solid #1B4F72;
+  background: #EAE9FB;
+  border-left: 3px solid #6A66D5;
   border-radius: 0 4px 4px 0;
   color: #3a3a3a;
   font-style: italic;
@@ -795,8 +795,8 @@ section {
 }
 section h3 {
   font-size: 1.3rem;
-  color: #1B4F72;
-  border-bottom: 2px solid #1B4F72;
+  color: #6A66D5;
+  border-bottom: 2px solid #6A66D5;
   padding-bottom: 0.3rem;
   margin-bottom: 1rem;
 }
@@ -831,7 +831,7 @@ section h3 i {
 .exp-main h4 {
   margin: 0 0 0.25rem;       /* No top margin, small bottom margin */
   font-size: 1.1rem;
-  color: #1B4F72;            /* Your chosen accent color */
+  color: #6A66D5;            /* Your chosen accent color */
 }
 
 .exp-main p {
