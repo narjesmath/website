@@ -133,6 +133,14 @@ d-appendix {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   padding: 1rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.project-card:hover {
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
 }
 
 .project-pic {
@@ -146,6 +154,37 @@ d-appendix {
   margin-top: 0.5rem;
   text-decoration: none;
   font-weight: bold;
+}
+
+.project-desc {
+  margin: 0.75rem 0 0.25rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #444;
+  text-align: left;
+}
+
+.project-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #fff;
+  background: #ca225e;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+.project-cta:hover {
+  background: #a11a4c;
+  color: #fff;
+}
+.project-cta i {
+  font-size: 0.8rem;
 }
 
 .btn {
