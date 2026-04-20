@@ -71,7 +71,12 @@ output:
     <li>Developed comprehensive course content (exams, assignments, guest-speaker coordination, documentary screenings) for approximately 300 students.</li>
     <li>Managed a team of 4 teaching assistants, overseeing grading, office hours, and student support.</li>
     <li>Enhanced engagement by integrating multimedia and interactive classroom activities.</li>
+    <li>Integrated the documentary <a href="https://www.videoproject.org/wade-in-the-water.html" target="_blank" rel="noopener"><em>Wade in the Water</em></a> into the course to engage students with the history of Black surfing and broader questions of diversity, equity, and exclusion in surf culture.</li>
   </ul>
+  <blockquote class="teach-quote">
+    <p>“By integrating <em>Wade in the Water</em> into my classroom curriculum, I’ve been able to engage students in meaningful discussions about diversity, equity, and the systemic barriers that have historically marginalized certain groups within the surfing world. The students were particularly enlightened and inspired by the documentary, expressing surprise and appreciation for the depth of history and culture it uncovered.”</p>
+    <footer class="teach-quote-attr">— Narjes Mathlouthi, PhD Candidate, UC Santa Barbara</footer>
+  </blockquote>
 </div>
 
 <div class="teach-block">
