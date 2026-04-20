@@ -314,10 +314,34 @@
     if (!model) return;
 
     var toc = renderToc(model);
-    // Insert at the very top of the article. On wide screens, CSS pulls
-    // this out of flow as a sticky left rail; on narrow screens it stays
-    // inline at the top of the content.
-    article.insertBefore(toc, article.firstChild);
+    // Placement depends on viewport width:
+    //  - Wide (>=1181px): attached to <body> so position:fixed is always
+    //    relative to the viewport (Distill's <d-article> can otherwise
+    //    create a containing block for fixed descendants).
+    //  - Narrow: inserted at the top of the article as a compact panel.
+    // Re-evaluated on matchMedia changes so resizing the window still works.
+    var mmWide = window.matchMedia("(min-width: 1181px)");
+    function placeToc() {
+      if (mmWide.matches) {
+        toc.classList.remove("site-toc--inline");
+        toc.classList.add("site-toc--rail");
+        if (toc.parentNode !== document.body) {
+          document.body.appendChild(toc);
+        }
+      } else {
+        toc.classList.remove("site-toc--rail");
+        toc.classList.add("site-toc--inline");
+        if (toc.parentNode !== article) {
+          article.insertBefore(toc, article.firstChild);
+        }
+      }
+    }
+    placeToc();
+    if (mmWide.addEventListener) {
+      mmWide.addEventListener("change", placeToc);
+    } else if (mmWide.addListener) {
+      mmWide.addListener(placeToc); // Safari < 14
+    }
 
     // Active-link tracking via IntersectionObserver
     if (!("IntersectionObserver" in window)) return;
@@ -343,15 +367,18 @@
   function initPageBackground() {
     var page = (location.pathname.split("/").pop() || "").toLowerCase();
     if (!page || page === "/") page = "index.html";
+    // [background file, white-overlay alpha]. Lower alpha = image more visible.
     var map = {
-      "index.html": "back1.jpg",
-      "cv.html": "back3.jpg",
-      "teaching.html": "back5.jpg",
-      "projects.html": "back4.jpg",
-      "research.html": "back2.jpg"
+      "index.html":    ["back6.jpg",  0.82],
+      "cv.html":       ["back3.jpg",  0.86],
+      "teaching.html": ["back5.jpg",  0.86],
+      "projects.html": ["back4.jpg",  0.86],
+      "research.html": ["back10.jpg", 0.72]
     };
-    var file = map[page] || "back1.jpg";
-    document.documentElement.style.setProperty("--page-background", "url('images/" + file + "')");
+    var entry = map[page] || ["back1.jpg", 0.86];
+    var root = document.documentElement;
+    root.style.setProperty("--page-background", "url('images/" + entry[0] + "')");
+    root.style.setProperty("--page-overlay", "rgba(255,255,255," + entry[1] + ")");
   }
 
   // ---------- Analytics (GoatCounter) ----------
