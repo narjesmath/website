@@ -368,45 +368,53 @@ details code {font-size: 1.1em;}
   background-color: #003f73;
 }
 
-/* ---------- CV Education blocks ---------- */
+/* ---------- CV Education (academic layout) ---------- */
 .edu-block {
-  margin-bottom: 1.35rem;
-  padding-bottom: 1.1rem;
-  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
 }
 .edu-block:last-of-type {
   border-bottom: none;
   margin-bottom: 0;
   padding-bottom: 0;
 }
-.edu-row {
+.edu-head {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-bottom: 0.25rem;
 }
-.edu-row .edu-date {
+.edu-degree {
+  flex: 1 1 12rem;
+  line-height: 1.35;
+}
+.edu-head .edu-date {
   flex: 0 0 auto;
   text-align: right;
-  font-size: 0.92rem;
-  color: #555;
-}
-.edu-sub {
-  margin: 0.4rem 0 0;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
   color: #444;
+  white-space: nowrap;
+}
+.edu-inst {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #333;
 }
 .edu ul.edu-bullets {
-  margin: 0.5rem 0 0 1.25rem;
+  margin: 0.45rem 0 0 1.2rem;
   padding: 0;
   list-style-type: disc;
 }
 .edu ul.edu-bullets li {
-  margin-bottom: 0.35rem;
-  line-height: 1.5;
-  color: var(--body-color, #333);
+  margin-bottom: 0.3rem;
+  line-height: 1.55;
+  font-size: 0.94rem;
+  color: #333;
 }
 
 /* ---------- Section Titles ---------- */

@@ -17,51 +17,38 @@ output:
     <h3><i class="fa fa-graduation-cap"></i> Education</h3>
 
     <div class="edu-block">
-      <div class="edu-row">
-        <span>University of California, Santa Barbara</span>
+      <div class="edu-head">
+        <span class="edu-degree"><strong>Ph.D. in Geography</strong> (in progress)</span>
         <span class="edu-date">Expected 2028</span>
       </div>
-      <div class="edu-row">
-        <span><strong>Ph.D. in Geography</strong> (in progress)</span>
-        <span class="edu-date">Santa Barbara, CA</span>
-      </div>
-      <p class="edu-sub">Commendation, March 2026</p>
+      <p class="edu-inst">University of California, Santa Barbara · Santa Barbara, CA</p>
     </div>
 
     <div class="edu-block">
-      <div class="edu-row">
-        <span>University of California, Santa Barbara</span>
+      <div class="edu-head">
+        <span class="edu-degree"><strong>M.A. in Probability and Statistics</strong></span>
         <span class="edu-date">Awarded December 2025</span>
       </div>
-      <div class="edu-row">
-        <span><strong>M.A. in Probability and Statistics</strong></span>
-        <span class="edu-date">Santa Barbara, CA</span>
-      </div>
+      <p class="edu-inst">University of California, Santa Barbara · Santa Barbara, CA</p>
       <ul class="edu-bullets">
         <li>Graduate training in probability theory, stochastic processes, Bayesian inference, time series, computational statistics, and statistical machine learning.</li>
       </ul>
     </div>
 
     <div class="edu-block">
-      <div class="edu-row">
-        <span>Bren School of Environmental Science &amp; Management, UCSB</span>
+      <div class="edu-head">
+        <span class="edu-degree"><strong>Master of Environmental Science and Management (M.E.S.M.)</strong></span>
         <span class="edu-date">June 2023</span>
       </div>
-      <div class="edu-row">
-        <span><strong>Master of Environmental Science and Management (M.E.S.M.)</strong></span>
-        <span class="edu-date">Santa Barbara, CA</span>
-      </div>
+      <p class="edu-inst">Bren School of Environmental Science &amp; Management, University of California, Santa Barbara · Santa Barbara, CA</p>
     </div>
 
     <div class="edu-block">
-      <div class="edu-row">
-        <span>University of California, Berkeley</span>
+      <div class="edu-head">
+        <span class="edu-degree"><strong>B.S. in Environmental Economics &amp; Policy</strong></span>
         <span class="edu-date">December 2016</span>
       </div>
-      <div class="edu-row">
-        <span><strong>B.S. in Environmental Economics &amp; Policy</strong></span>
-        <span class="edu-date">Berkeley, CA</span>
-      </div>
+      <p class="edu-inst">University of California, Berkeley · Berkeley, CA</p>
     </div>
   </section>
 
