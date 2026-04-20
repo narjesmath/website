@@ -683,8 +683,9 @@ section.interests .interests-items li i {
 /* ---------- Teaching: page layout ---------- */
 section.teaching { max-width: 860px; margin: 1.5rem auto 2rem; }
 
-/* Intro + stats header */
+/* Intro + stats header (currently hidden) */
 .teach-intro {
+  display: none;
   margin: 0 0 2rem;
   padding: 1.25rem 1.5rem;
   background: linear-gradient(135deg, #F6F5FC 0%, #EFEAFB 100%);
