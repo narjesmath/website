@@ -239,16 +239,9 @@
       list.appendChild(li);
     });
 
-    document.body.appendChild(toc);
-
-    // Mobile drawer toggle
-    var toggle = document.createElement("button");
-    toggle.type = "button";
-    toggle.className = "site-toc__toggle";
-    toggle.setAttribute("aria-label", "Toggle table of contents");
-    toggle.innerHTML = '<i class="fas fa-list" aria-hidden="true"></i>';
-    document.body.appendChild(toggle);
-    toggle.addEventListener("click", function () { toc.classList.toggle("is-open"); });
+    // Insert the TOC at the very top of the article so it is always
+    // visible (also keeps it sticky on wide screens via CSS).
+    article.insertBefore(toc, article.firstChild);
 
     // Highlight current section via IntersectionObserver
     if (!("IntersectionObserver" in window)) return;
