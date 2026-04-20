@@ -156,6 +156,25 @@ d-appendix {
   font-weight: bold;
 }
 
+.project-card h3 {
+  margin: 0.25rem 0 0.5rem;
+  line-height: 1.3;
+}
+
+.btn.project-title,
+.project-title {
+  display: inline-block;
+  height: auto;
+  min-height: 40px;
+  line-height: 1.35;
+  white-space: normal;
+  padding: 0.55rem 0.9rem;
+  max-width: 100%;
+  font-size: 0.92rem;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
 .project-desc {
   margin: 0.75rem 0 0.25rem;
   font-size: 0.92rem;
