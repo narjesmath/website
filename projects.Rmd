@@ -8,26 +8,34 @@ title: "Projects"
 
 <div class="projects-grid">
   <article class="project-card">
-    <h3>
-      <a
-        href="https://narjesmath.github.io/pstat262DM/"
-        target="_blank"
-        rel="noopener"
-        class="btn project-title"
-      >
-        Conditional Diffusion Models for Climate Downscaling and Bias Correction
-      </a>
-    </h3>
-    <p class="project-desc">
-      Interactive presentation summarizing and critiquing Aich et al. on conditional diffusion models for climate-model precipitation downscaling and bias correction.
-    </p>
-    <a
-      href="https://narjesmath.github.io/pstat262DM/"
-      target="_blank"
-      rel="noopener"
-      class="project-cta"
-    >
-      View Presentation <i class="fa fa-external-link-alt"></i>
+    <div class="project-card-body">
+      <h3 class="project-title-text">
+        <a href="https://narjesmath.github.io/pstat262DM/" target="_blank" rel="noopener">
+          Conditional Diffusion Models for Climate Downscaling and Bias Correction
+        </a>
+      </h3>
+      <p class="project-desc">
+        Interactive presentation summarizing and critiquing Aich et al. on conditional diffusion models for climate-model precipitation downscaling and bias correction.
+      </p>
+    </div>
+    <a href="https://narjesmath.github.io/pstat262DM/" target="_blank" rel="noopener" class="project-cta">
+      View presentation <i class="fa fa-arrow-right"></i>
+    </a>
+  </article>
+
+  <article class="project-card">
+    <div class="project-card-body">
+      <h3 class="project-title-text">
+        <a href="pdfs/Reproducible_Benchmark_Patch-Sparse_Image_Restoration.pdf" target="_blank" rel="noopener">
+          Reproducible Benchmark for Patch-Sparse Image Restoration
+        </a>
+      </h3>
+      <p class="project-desc">
+        Reproducible benchmark comparing ISTA, FISTA, and ADMM for patch-sparse image restoration on CBSD68, with controlled degradation settings and evaluation by PSNR, SSIM, and runtime.
+      </p>
+    </div>
+    <a href="pdfs/Reproducible_Benchmark_Patch-Sparse_Image_Restoration.pdf" target="_blank" rel="noopener" class="project-cta">
+      Read paper <i class="fa fa-file-pdf"></i>
     </a>
   </article>
 </div>
@@ -38,94 +46,74 @@ title: "Projects"
 
 <div class="projects-grid">
   <article class="project-card">
-    <h3>
-      <a
-        href="projects/ca_oil_spill_2008.html"
-        target="_blank"
-        class="btn project-title"
-      >
-        California Oil Spill (2008)
-      </a>
-    </h3>
-    <img
-      src="images/caoilspill.png"
-      alt="California Oil Spill"
-      class="project-pic"
-      loading="lazy"
-    />
+    <a href="projects/ca_oil_spill_2008.html" target="_blank" class="project-thumb-wrap">
+      <img src="images/caoilspill.png" alt="California Oil Spill" class="project-thumb" loading="lazy" />
+    </a>
+    <div class="project-card-body">
+      <h3 class="project-title-text">
+        <a href="projects/ca_oil_spill_2008.html" target="_blank">California Oil Spill (2008)</a>
+      </h3>
+    </div>
+    <a href="projects/ca_oil_spill_2008.html" target="_blank" class="project-cta">
+      View project <i class="fa fa-arrow-right"></i>
+    </a>
   </article>
 
   <article class="project-card">
-    <h3>
-      <a
-        href="projects/sentiment_analysis.html"
-        target="_blank"
-        class="btn project-title"
-      >
-        Sentiment Analysis
-      </a>
-    </h3>
-    <img
-      src="images/sentiment_analysis_words.png"
-      alt="Sentiment Analysis"
-      class="project-pic"
-      loading="lazy"
-    />
-  </article>
-  <article class="project-card">
-    <h3>
-      <a
-        href="projects/binary_logistic_regression.html"
-        target="_blank"
-        class="btn project-title"
-      >
-        Binary Logistic Analysis
-      </a>
-    </h3>
-    <img
-      src="images/blr.png"
-      alt="Binary Logistic Analysis"
-      class="project-pic"
-      loading="lazy"
-    />
+    <a href="projects/sentiment_analysis.html" target="_blank" class="project-thumb-wrap">
+      <img src="images/sentiment_analysis_words.png" alt="Sentiment Analysis" class="project-thumb" loading="lazy" />
+    </a>
+    <div class="project-card-body">
+      <h3 class="project-title-text">
+        <a href="projects/sentiment_analysis.html" target="_blank">Sentiment Analysis</a>
+      </h3>
+    </div>
+    <a href="projects/sentiment_analysis.html" target="_blank" class="project-cta">
+      View project <i class="fa fa-arrow-right"></i>
+    </a>
   </article>
 
   <article class="project-card">
-    <h3>
-      <a
-        href="projects/narjes_mathlouthi_snowshoe_report.html"
-        target="_blank"
-        class="btn project-title"
-      >
-        Juvenile Snowhare Count
-      </a>
-    </h3>
-    <img
-      src="images/map_of_bonanza_creek_alaska.png"
-      alt="Juvenile Snowhare Count"
-      class="project-pic"
-      loading="lazy"
-    />
+    <a href="projects/binary_logistic_regression.html" target="_blank" class="project-thumb-wrap">
+      <img src="images/blr.png" alt="Binary Logistic Analysis" class="project-thumb" loading="lazy" />
+    </a>
+    <div class="project-card-body">
+      <h3 class="project-title-text">
+        <a href="projects/binary_logistic_regression.html" target="_blank">Binary Logistic Analysis</a>
+      </h3>
+    </div>
+    <a href="projects/binary_logistic_regression.html" target="_blank" class="project-cta">
+      View project <i class="fa fa-arrow-right"></i>
+    </a>
   </article>
-  
-<article class="project-card">
-    <h3>
-      <a
-        href="projects/fish_passage.html"
-        target="_blank"
-        class="btn project-title"
-      >
-        Willamette Falls Fish Passage
-      </a>
-    </h3>
-    <img
-      src="images/willamette_falls_map.png"
-      alt="Willamette Falls Fish Passage"
-      class="project-pic"
-      loading="lazy"
-    />
+
+  <article class="project-card">
+    <a href="projects/narjes_mathlouthi_snowshoe_report.html" target="_blank" class="project-thumb-wrap">
+      <img src="images/map_of_bonanza_creek_alaska.png" alt="Juvenile Snowshoe Hare Count" class="project-thumb" loading="lazy" />
+    </a>
+    <div class="project-card-body">
+      <h3 class="project-title-text">
+        <a href="projects/narjes_mathlouthi_snowshoe_report.html" target="_blank">Juvenile Snowshoe Hare Count</a>
+      </h3>
+    </div>
+    <a href="projects/narjes_mathlouthi_snowshoe_report.html" target="_blank" class="project-cta">
+      View project <i class="fa fa-arrow-right"></i>
+    </a>
   </article>
-  
+
+  <article class="project-card">
+    <a href="projects/fish_passage.html" target="_blank" class="project-thumb-wrap">
+      <img src="images/willamette_falls_map.png" alt="Willamette Falls Fish Passage" class="project-thumb" loading="lazy" />
+    </a>
+    <div class="project-card-body">
+      <h3 class="project-title-text">
+        <a href="projects/fish_passage.html" target="_blank">Willamette Falls Fish Passage</a>
+      </h3>
+    </div>
+    <a href="projects/fish_passage.html" target="_blank" class="project-cta">
+      View project <i class="fa fa-arrow-right"></i>
+    </a>
+  </article>
 </div>
 </details>
 :::

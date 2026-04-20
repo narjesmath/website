@@ -2839,37 +2839,154 @@ ul.teach-bullets, .teach-block .teach-bullets { margin: 0.7rem 0 0 1.2rem; paddi
   .teach-course { flex: 1 1 100%; }
 }
 
-/* ---------- Project card refinements ---------- */
-.project-card { display: flex; flex-direction: column; justify-content: flex-start; transition: box-shadow .2s ease, transform .2s ease; }
-.project-card:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.12); transform: translateY(-2px); }
-.project-card h3 { margin: 0.25rem 0 0.5rem; line-height: 1.3; }
-.btn.project-title, .project-title {
-  display: inline-block; height: auto; min-height: 40px; line-height: 1.35;
-  white-space: normal; padding: 0.55rem 0.9rem; max-width: 100%;
-  font-size: 0.92rem; font-weight: 600; border-radius: 6px;
+/* ---------- Projects: section banner (details summary) ---------- */
+.d-article details { margin: 1.25rem 0 2rem; }
+.d-article details > summary {
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.55rem 1rem;
+  margin: 0 0 1.2rem;
+  background: linear-gradient(90deg, #6A66D5 0%, #B67CF5 100%);
+  color: #ffffff !important;
+  border-radius: 999px;
+  font-family: var(--heading-font), serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  box-shadow: 0 1px 3px rgba(106,102,213,0.25);
+  transition: transform .15s ease, box-shadow .15s ease;
 }
-.project-desc { margin: 0.75rem 0 0.25rem; font-size: 0.92rem; line-height: 1.55; color: #444; text-align: left; }
+.d-article details > summary::-webkit-details-marker { display: none; }
+.d-article details > summary::before {
+  content: "\25B8"; /* small right triangle */
+  display: inline-block;
+  font-size: 0.7em; line-height: 1;
+  transition: transform .2s ease;
+  color: rgba(255,255,255,0.85);
+}
+.d-article details[open] > summary::before { transform: rotate(90deg); }
+.d-article details > summary:hover { box-shadow: 0 3px 8px rgba(106,102,213,0.35); }
+.d-article details[open] > summary { border-radius: 999px; }
+
+/* ---------- Projects grid + cards ---------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+.project-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid #ECECF5;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(20,20,40,0.04);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.project-card::before {
+  content: ""; display: block; height: 4px;
+  background: #6A66D5;
+  transition: background .2s ease;
+}
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(20,20,40,0.08), 0 2px 6px rgba(20,20,40,0.04);
+  border-color: #E0DFF3;
+}
+.project-thumb-wrap {
+  display: block; line-height: 0;
+  background: #F6F5FC;
+  border-bottom: 1px solid #EEEDF7;
+}
+.project-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  transition: transform .3s ease, opacity .2s ease;
+}
+.project-card:hover .project-thumb { transform: scale(1.03); }
+.project-card-body {
+  padding: 0.95rem 1.1rem 0.4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.project-title-text {
+  margin: 0;
+  font-family: var(--heading-font), serif;
+  font-size: 1rem;
+  line-height: 1.35;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  color: #1f1f1f;
+}
+.project-title-text a {
+  color: inherit;
+  text-decoration: none;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  display: inline;
+  transition: color .15s ease;
+}
+.project-title-text a:hover { color: #6A66D5; }
+.project-desc {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #555;
+}
 .project-cta {
-  display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.75rem;
-  padding: 0.35rem 0.85rem; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.02em;
-  color: #fff; background: #6A66D5; border-radius: 4px; text-decoration: none;
-  transition: background .15s ease;
+  align-self: flex-start;
+  margin: 0.4rem 1.1rem 1.05rem;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.32rem 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #6A66D5 !important;
+  background: #EAE9FB !important;
+  border-radius: 999px;
+  text-decoration: none !important;
+  transition: background .15s ease, color .15s ease, transform .15s ease;
 }
-.project-cta:hover { background: #4F4BB8; color: #fff; }
-.project-cta i { font-size: 0.8rem; }
-/* Rotate project-title / CTA colors across the grid for variety */
-.projects-grid > .project-card:nth-child(5n+1) .btn.project-title { background: #6A66D5; }
-.projects-grid > .project-card:nth-child(5n+2) .btn.project-title { background: #8B5CC7; }
-.projects-grid > .project-card:nth-child(5n+3) .btn.project-title { background: #3A7FC4; }
-.projects-grid > .project-card:nth-child(5n+4) .btn.project-title { background: #5B6FC7; }
-.projects-grid > .project-card:nth-child(5n+5) .btn.project-title { background: #7B4CC0; }
-.projects-grid > .project-card:nth-child(5n+1) .btn.project-title:hover { background: #4F4BB8; }
-.projects-grid > .project-card:nth-child(5n+2) .btn.project-title:hover { background: #7041B8; }
-.projects-grid > .project-card:nth-child(5n+3) .btn.project-title:hover { background: #2C6AAB; }
-.projects-grid > .project-card:nth-child(5n+4) .btn.project-title:hover { background: #4557B0; }
-.projects-grid > .project-card:nth-child(5n+5) .btn.project-title:hover { background: #6339AD; }
-/* Details summary (Current / Selected Past Projects) accent */
-details > summary { color: #4F4BB8; font-weight: 600; }
+.project-cta i { font-size: 0.72rem; }
+.project-cta:hover {
+  background: #6A66D5 !important;
+  color: #fff !important;
+  transform: translateX(2px);
+}
+/* Neutralize the old .btn baseline styling when nested inside project-title-text */
+.project-title-text .btn { all: unset; cursor: pointer; }
+
+/* Rotate accent bar colors for visual variety */
+.projects-grid > .project-card:nth-child(5n+1)::before { background: #6A66D5; }
+.projects-grid > .project-card:nth-child(5n+2)::before { background: #8B5CC7; }
+.projects-grid > .project-card:nth-child(5n+3)::before { background: #3A7FC4; }
+.projects-grid > .project-card:nth-child(5n+4)::before { background: #5B6FC7; }
+.projects-grid > .project-card:nth-child(5n+5)::before { background: #7B4CC0; }
+.projects-grid > .project-card:nth-child(5n+1) .project-cta { color: #6A66D5 !important; background: #EAE9FB !important; }
+.projects-grid > .project-card:nth-child(5n+2) .project-cta { color: #8B5CC7 !important; background: #F1E9FB !important; }
+.projects-grid > .project-card:nth-child(5n+3) .project-cta { color: #3A7FC4 !important; background: #E4EEFB !important; }
+.projects-grid > .project-card:nth-child(5n+4) .project-cta { color: #5B6FC7 !important; background: #E9EBFB !important; }
+.projects-grid > .project-card:nth-child(5n+5) .project-cta { color: #7B4CC0 !important; background: #F0E7FB !important; }
+.projects-grid > .project-card:nth-child(5n+1) .project-cta:hover { background: #6A66D5 !important; color: #fff !important; }
+.projects-grid > .project-card:nth-child(5n+2) .project-cta:hover { background: #8B5CC7 !important; color: #fff !important; }
+.projects-grid > .project-card:nth-child(5n+3) .project-cta:hover { background: #3A7FC4 !important; color: #fff !important; }
+.projects-grid > .project-card:nth-child(5n+4) .project-cta:hover { background: #5B6FC7 !important; color: #fff !important; }
+.projects-grid > .project-card:nth-child(5n+5) .project-cta:hover { background: #7B4CC0 !important; color: #fff !important; }
+.projects-grid > .project-card:nth-child(5n+1) .project-title-text a:hover { color: #6A66D5; }
+.projects-grid > .project-card:nth-child(5n+2) .project-title-text a:hover { color: #8B5CC7; }
+.projects-grid > .project-card:nth-child(5n+3) .project-title-text a:hover { color: #3A7FC4; }
+.projects-grid > .project-card:nth-child(5n+4) .project-title-text a:hover { color: #5B6FC7; }
+.projects-grid > .project-card:nth-child(5n+5) .project-title-text a:hover { color: #7B4CC0; }
 </style>
 
 </head>
@@ -2937,115 +3054,118 @@ details > summary { color: #4F4BB8; font-weight: 600; }
 <div class="d-article">
 <div class="{=html}">
 <details open>
-<summary>
-Current
-</summary>
+<summary>Current</summary>
 <div class="projects-grid">
+
 <article class="project-card">
-<h3>
-<a href="https://narjesmath.github.io/pstat262DM/" target="_blank" rel="noopener" class="btn project-title">
-Conditional Diffusion Models for Climate Downscaling and Bias Correction
-</a>
-</h3>
-<p class="project-desc">
-Interactive presentation summarizing and critiquing Aich et al. on conditional diffusion models for climate-model precipitation downscaling and bias correction.
-</p>
-<a href="https://narjesmath.github.io/pstat262DM/" target="_blank" rel="noopener" class="project-cta">
-View Presentation <i class="fa fa-external-link-alt"></i>
-</a>
+  <div class="project-card-body">
+    <h3 class="project-title-text">
+      <a href="https://narjesmath.github.io/pstat262DM/" target="_blank" rel="noopener">
+        Conditional Diffusion Models for Climate Downscaling and Bias Correction
+      </a>
+    </h3>
+    <p class="project-desc">
+      Interactive presentation summarizing and critiquing Aich et al. on conditional diffusion models for climate-model precipitation downscaling and bias correction.
+    </p>
+  </div>
+  <a href="https://narjesmath.github.io/pstat262DM/" target="_blank" rel="noopener" class="project-cta">
+    View presentation <i class="fa fa-arrow-right"></i>
+  </a>
 </article>
+
+<article class="project-card">
+  <div class="project-card-body">
+    <h3 class="project-title-text">
+      <a href="pdfs/Reproducible_Benchmark_Patch-Sparse_Image_Restoration.pdf" target="_blank" rel="noopener">
+        Reproducible Benchmark for Patch-Sparse Image Restoration
+      </a>
+    </h3>
+    <p class="project-desc">
+      Reproducible benchmark comparing ISTA, FISTA, and ADMM for patch-sparse image restoration on CBSD68, with controlled degradation settings and evaluation by PSNR, SSIM, and runtime.
+    </p>
+  </div>
+  <a href="pdfs/Reproducible_Benchmark_Patch-Sparse_Image_Restoration.pdf" target="_blank" rel="noopener" class="project-cta">
+    Read paper <i class="fa fa-file-pdf"></i>
+  </a>
+</article>
+
 </div>
 </details>
+
 <details>
-<summary>
-Selected Past Projects
-</summary>
+<summary>Selected Past Projects</summary>
 <div class="projects-grid">
+
 <article class="project-card">
-<h3>
-<a
-        href="projects/ca_oil_spill_2008.html"
-        target="_blank"
-        class="btn project-title"
-      >
-California Oil Spill (2008)
-</a>
-</h3>
-<img
-      src="images/caoilspill.png"
-      alt="California Oil Spill"
-      class="project-pic"
-      loading="lazy"
-    />
+  <a href="projects/ca_oil_spill_2008.html" target="_blank" class="project-thumb-wrap">
+    <img src="images/caoilspill.png" alt="California Oil Spill" class="project-thumb" loading="lazy" />
+  </a>
+  <div class="project-card-body">
+    <h3 class="project-title-text">
+      <a href="projects/ca_oil_spill_2008.html" target="_blank">California Oil Spill (2008)</a>
+    </h3>
+  </div>
+  <a href="projects/ca_oil_spill_2008.html" target="_blank" class="project-cta">
+    View project <i class="fa fa-arrow-right"></i>
+  </a>
 </article>
+
 <article class="project-card">
-<h3>
-<a
-        href="projects/sentiment_analysis.html"
-        target="_blank"
-        class="btn project-title"
-      >
-Sentiment Analysis
-</a>
-</h3>
-<img
-      src="images/sentiment_analysis_words.png"
-      alt="Sentiment Analysis"
-      class="project-pic"
-      loading="lazy"
-    />
+  <a href="projects/sentiment_analysis.html" target="_blank" class="project-thumb-wrap">
+    <img src="images/sentiment_analysis_words.png" alt="Sentiment Analysis" class="project-thumb" loading="lazy" />
+  </a>
+  <div class="project-card-body">
+    <h3 class="project-title-text">
+      <a href="projects/sentiment_analysis.html" target="_blank">Sentiment Analysis</a>
+    </h3>
+  </div>
+  <a href="projects/sentiment_analysis.html" target="_blank" class="project-cta">
+    View project <i class="fa fa-arrow-right"></i>
+  </a>
 </article>
+
 <article class="project-card">
-<h3>
-<a
-        href="projects/binary_logistic_regression.html"
-        target="_blank"
-        class="btn project-title"
-      >
-Binary Logistic Analysis
-</a>
-</h3>
-<img
-      src="images/blr.png"
-      alt="Binary Logistic Analysis"
-      class="project-pic"
-      loading="lazy"
-    />
+  <a href="projects/binary_logistic_regression.html" target="_blank" class="project-thumb-wrap">
+    <img src="images/blr.png" alt="Binary Logistic Analysis" class="project-thumb" loading="lazy" />
+  </a>
+  <div class="project-card-body">
+    <h3 class="project-title-text">
+      <a href="projects/binary_logistic_regression.html" target="_blank">Binary Logistic Analysis</a>
+    </h3>
+  </div>
+  <a href="projects/binary_logistic_regression.html" target="_blank" class="project-cta">
+    View project <i class="fa fa-arrow-right"></i>
+  </a>
 </article>
+
 <article class="project-card">
-<h3>
-<a
-        href="projects/narjes_mathlouthi_snowshoe_report.html"
-        target="_blank"
-        class="btn project-title"
-      >
-Juvenile Snowhare Count
-</a>
-</h3>
-<img
-      src="images/map_of_bonanza_creek_alaska.png"
-      alt="Juvenile Snowhare Count"
-      class="project-pic"
-      loading="lazy"
-    />
+  <a href="projects/narjes_mathlouthi_snowshoe_report.html" target="_blank" class="project-thumb-wrap">
+    <img src="images/map_of_bonanza_creek_alaska.png" alt="Juvenile Snowshoe Hare Count" class="project-thumb" loading="lazy" />
+  </a>
+  <div class="project-card-body">
+    <h3 class="project-title-text">
+      <a href="projects/narjes_mathlouthi_snowshoe_report.html" target="_blank">Juvenile Snowshoe Hare Count</a>
+    </h3>
+  </div>
+  <a href="projects/narjes_mathlouthi_snowshoe_report.html" target="_blank" class="project-cta">
+    View project <i class="fa fa-arrow-right"></i>
+  </a>
 </article>
+
 <article class="project-card">
-<h3>
-<a
-        href="projects/fish_passage.html"
-        target="_blank"
-        class="btn project-title"
-      >
-Willamette Falls Fish Passage
-</a>
-</h3>
-<img
-      src="images/willamette_falls_map.png"
-      alt="Willamette Falls Fish Passage"
-      class="project-pic"
-      loading="lazy"
-    />
+  <a href="projects/fish_passage.html" target="_blank" class="project-thumb-wrap">
+    <img src="images/willamette_falls_map.png" alt="Willamette Falls Fish Passage" class="project-thumb" loading="lazy" />
+  </a>
+  <div class="project-card-body">
+    <h3 class="project-title-text">
+      <a href="projects/fish_passage.html" target="_blank">Willamette Falls Fish Passage</a>
+    </h3>
+  </div>
+  <a href="projects/fish_passage.html" target="_blank" class="project-cta">
+    View project <i class="fa fa-arrow-right"></i>
+  </a>
 </article>
+
 </div>
 </details>
 </div>
