@@ -385,6 +385,113 @@
     root.setAttribute("data-page", slug);
   }
 
+  // ---------- Icon Legend (About page only) ----------
+  // Renders a small reference panel explaining what each nav/social icon
+  // means. Wide screens: sticky left rail (appended to <body> so it can
+  // fix-position relative to the viewport). Narrow screens: an inline
+  // card inserted after the bio card.
+  function initIconLegend() {
+    var page = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+    if (!(page === "index.html" || page === "" || page === "/")) return;
+
+    var article = document.querySelector("d-article, .d-article");
+    if (!article) return;
+    if (document.querySelector(".icon-legend")) return;
+
+    var groups = [
+      {
+        heading: "Navigation",
+        items: [
+          { href: "index.html",     icon: "fa fa-home",                label: "About" },
+          { href: "teaching.html",  icon: "fa fa-chalkboard-teacher",  label: "Teaching" },
+          { href: "projects.html",  icon: "fa fa-folder-open",         label: "Projects" },
+          { href: "research.html",  icon: "fa fa-flask",               label: "Research" },
+          { href: "cv.html",        icon: "fa fa-file",                label: "CV" }
+        ]
+      },
+      {
+        heading: "Connect",
+        items: [
+          { href: "mailto:nmathlouthi@ucsb.edu",         icon: "fa fa-envelope-o", label: "Email" },
+          { href: "https://github.com/narjesmath",       icon: "fab fa-github",    label: "GitHub" },
+          { href: "https://www.linkedin.com/in/narjes-m/", icon: "fab fa-linkedin", label: "LinkedIn" },
+          { href: "https://twitter.com/NarjesMathlout1", icon: "fab fa-twitter",   label: "Twitter" }
+        ]
+      }
+    ];
+
+    function makeNode() {
+      var nav = document.createElement("nav");
+      nav.className = "icon-legend";
+      nav.setAttribute("aria-label", "Site icon legend");
+      groups.forEach(function (g) {
+        var groupEl = document.createElement("div");
+        groupEl.className = "icon-legend__group";
+        var h = document.createElement("p");
+        h.className = "icon-legend__heading";
+        h.textContent = g.heading;
+        groupEl.appendChild(h);
+        var ul = document.createElement("ul");
+        ul.className = "icon-legend__list";
+        g.items.forEach(function (it) {
+          var li = document.createElement("li");
+          var a = document.createElement("a");
+          a.className = "icon-legend__item";
+          a.href = it.href;
+          a.title = it.label;
+          var isExternal = /^https?:/.test(it.href);
+          if (isExternal) { a.target = "_blank"; a.rel = "noopener"; }
+          var iSpan = document.createElement("span");
+          iSpan.className = "icon-legend__icon";
+          var icon = document.createElement("i");
+          icon.className = it.icon;
+          icon.setAttribute("aria-hidden", "true");
+          iSpan.appendChild(icon);
+          var label = document.createElement("span");
+          label.className = "icon-legend__label";
+          label.textContent = it.label;
+          a.appendChild(iSpan);
+          a.appendChild(label);
+          li.appendChild(a);
+          ul.appendChild(li);
+        });
+        groupEl.appendChild(ul);
+        nav.appendChild(groupEl);
+      });
+      return nav;
+    }
+
+    var mq = window.matchMedia("(min-width: 1181px)");
+    var node = null;
+
+    function mount() {
+      if (node && node.parentNode) node.parentNode.removeChild(node);
+      node = makeNode();
+      if (mq.matches) {
+        node.classList.add("icon-legend--rail");
+        document.body.appendChild(node);
+      } else {
+        node.classList.add("icon-legend--inline");
+        // Insert after the bio card and before the page footer (which is
+        // the copyright/Back-to-Top block also nested inside d-article).
+        var footer = article.querySelector(":scope > footer");
+        if (footer) {
+          article.insertBefore(node, footer);
+        } else {
+          article.appendChild(node);
+        }
+      }
+    }
+
+    mount();
+    // Re-mount on viewport crossings so the legend hops between rail/inline.
+    if (typeof mq.addEventListener === "function") {
+      mq.addEventListener("change", mount);
+    } else if (typeof mq.addListener === "function") {
+      mq.addListener(mount);
+    }
+  }
+
   // ---------- Analytics (GoatCounter) ----------
   function initAnalytics() {
     var code = window.SITE_ANALYTICS_CODE;
@@ -415,6 +522,7 @@
     try { initBackToTop(); } catch (e) { /* no-op */ }
     try { initCv(); } catch (e) { /* no-op */ }
     try { initTOC(); } catch (e) { /* no-op */ }
+    try { initIconLegend(); } catch (e) { /* no-op */ }
     try { initAnalytics(); } catch (e) { /* no-op */ }
   });
 })();
