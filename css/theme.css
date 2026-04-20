@@ -571,10 +571,12 @@ section.interests .interests-items li {
 section.interests .interests-items li i {
   color: #ca225e;
   font-size: 0.85rem;
-  width: 1em;
+  width: 1.25em;
+  min-width: 1.25em;
   text-align: center;
   display: inline-block;
   flex: 0 0 auto;
+  line-height: 1;
 }
 
 /* ---------- CV Education (academic layout) ---------- */

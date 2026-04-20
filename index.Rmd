@@ -8,7 +8,7 @@ output:
 
 
 ::: {.card}
-![](images/narjes.jpg){.card-img style="width:150px; height:auto;"}
+![](images/narjes.png){.card-img style="width:170px; height:auto;"}
 
 ::: {.card-content}
 I am a third-year PhD researcher in the [Department of Geography](https://www.geog.ucsb.edu/about){target="_blank"} at the University of California, Santa Barbara, and a Graduate Student Researcher with the [Climate Hazards Center](https://www.chc.ucsb.edu/){target="_blank"}. My research lies at the intersection of climate science, remote sensing, and AI/ML, with an emphasis on extreme climate events, environmental risk, and decision-relevant modeling. I also completed a Master’s in Mathematical Statistics at UCSB, with additional graduate training in applied statistics and data science.
