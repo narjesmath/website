@@ -236,47 +236,67 @@ html[data-theme="dark"] .site-theme-toggle--floating {
 html[data-theme="dark"] .site-back-to-top { background: #9D98FF; color: #0E1020; box-shadow: 0 4px 14px rgba(159,155,255,0.45); }
 html[data-theme="dark"] .site-back-to-top:hover { background: #BFBBFF; }
 
-/* ---------- Table of contents (inline, always visible) ---------- */
+/* ---------- Table of contents (sticky left rail, grouped) ---------- */
+/* Default (narrow screens): tucked away, collapsed to a compact top panel.
+   Wide screens: floats as a sticky left sidebar so it's always visible
+   alongside the article. */
 .site-toc {
-  display: block;
-  margin: 0 auto 2rem;
-  max-width: 720px;
-  padding: 0.9rem 1.1rem;
-  background: rgba(234,233,251,0.45);
+  position: fixed;
+  top: 50%;
+  left: 1.25rem;
+  transform: translateY(-50%);
+  width: 220px;
+  max-height: calc(100vh - 8rem);
+  overflow-y: auto;
+  padding: 1rem 1.1rem;
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: saturate(140%) blur(8px);
+  -webkit-backdrop-filter: saturate(140%) blur(8px);
   border: 1px solid rgba(106,102,213,0.18);
-  border-radius: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(106,102,213,0.08), 0 1px 3px rgba(0,0,0,0.04);
   font-family: var(--body-font, -apple-system, sans-serif);
-  font-size: 0.88rem;
-  line-height: 1.45;
-  color: rgba(0,0,0,0.7);
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: rgba(0,0,0,0.72);
+  z-index: 60;
 }
 .site-toc__title {
   display: block;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  font-size: 0.68rem;
   font-weight: 700;
   color: #6A66D5;
-  margin: 0 0 0.6rem;
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(106,102,213,0.15);
 }
+.site-toc__group {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: rgba(106,102,213,0.85);
+  margin: 0.75rem 0 0.2rem;
+  padding-left: 0.35rem;
+}
+.site-toc__group:first-of-type { margin-top: 0; }
 .site-toc ul {
   list-style: none;
-  margin: 0;
+  margin: 0 0 0.25rem;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.1rem 1rem;
+  display: block;
 }
 .site-toc__item { margin: 0; min-width: 0; }
-.site-toc__item--h3,
-.site-toc__item--h4 { font-size: 0.82rem; }
 .site-toc a {
-  color: rgba(0,0,0,0.65);
+  color: rgba(0,0,0,0.62);
   text-decoration: none;
   display: block;
-  padding: 0.25rem 0.5rem;
+  padding: 0.28rem 0.45rem 0.28rem 0.65rem;
   border-left: 2px solid transparent;
-  border-radius: 3px;
+  border-radius: 4px;
   transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -290,21 +310,62 @@ html[data-theme="dark"] .site-back-to-top:hover { background: #BFBBFF; }
   background: rgba(106,102,213,0.10);
 }
 
+/* Below 1180px: no room for a left rail. Flip to a compact top banner. */
+@media (max-width: 1180px) {
+  .site-toc {
+    position: static;
+    transform: none;
+    width: auto;
+    max-width: 100%;
+    max-height: none;
+    margin: 0 auto 1.5rem;
+    overflow: hidden;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .site-toc ul { columns: 2; column-gap: 1.25rem; }
+  .site-toc__item { break-inside: avoid; }
+}
 @media (max-width: 640px) {
-  .site-toc ul { grid-template-columns: 1fr; }
+  .site-toc ul { columns: 1; }
   .site-toc { font-size: 0.84rem; }
 }
 
 /* Dark mode */
 html[data-theme="dark"] .site-toc {
-  background: rgba(159,155,255,0.06);
+  background: rgba(30,28,58,0.75);
   border-color: rgba(159,155,255,0.22);
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.78);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.35);
 }
-html[data-theme="dark"] .site-toc__title { color: #BFBBFF; }
-html[data-theme="dark"] .site-toc a { color: rgba(255,255,255,0.7); }
+html[data-theme="dark"] .site-toc__title {
+  color: #BFBBFF;
+  border-bottom-color: rgba(159,155,255,0.25);
+}
+html[data-theme="dark"] .site-toc__group { color: rgba(191,187,255,0.85); }
+html[data-theme="dark"] .site-toc a { color: rgba(255,255,255,0.72); }
 html[data-theme="dark"] .site-toc a:hover { color: #BFBBFF; background: rgba(159,155,255,0.12); }
 html[data-theme="dark"] .site-toc a.is-active { color: #BFBBFF; border-left-color: #BFBBFF; background: rgba(159,155,255,0.18); }
+
+/* ---------- Page background image (light theme only) ---------- */
+:root { --page-background: none; }
+html:not([data-theme="dark"]) body {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.86)),
+    var(--page-background);
+  background-size: cover, cover;
+  background-position: center, center;
+  background-attachment: fixed, fixed;
+  background-repeat: no-repeat, no-repeat;
+}
+/* Distill wraps the article in its own white container; make it slightly
+   translucent so the tinted background shows through at the edges without
+   hurting readability. */
+html:not([data-theme="dark"]) .distill-site-header,
+html:not([data-theme="dark"]) .distill-site-nav,
+html:not([data-theme="dark"]) footer { background-color: rgba(255,255,255,0.72); }
+html:not([data-theme="dark"]) d-article,
+html:not([data-theme="dark"]) .d-article { background: transparent; }
 
 /* ---------- CV: Expand/Collapse all controls ---------- */
 .cv-controls {

@@ -188,7 +188,7 @@
     });
   }
 
-  // ---------- Table of contents (auto-built, sticky left rail) ----------
+  // ---------- Table of contents (auto-built, grouped, sticky) ----------
   function slugify(s) {
     return (s || "")
       .trim().toLowerCase()
@@ -196,57 +196,137 @@
       .replace(/^-+|-+$/g, "") || "section";
   }
 
-  function pickTocTargets(article) {
-    // Preference order: real article headings, teaching course titles, project titles.
-    var primary = article.querySelectorAll("h2, h3");
-    if (primary.length >= 3) return { nodes: primary, label: "On this page" };
-    var teachCourses = article.querySelectorAll(".teach-course");
-    if (teachCourses.length >= 3) return { nodes: teachCourses, label: "Courses" };
-    var projects = article.querySelectorAll(".projects-grid .project-title-text");
-    if (projects.length >= 3) return { nodes: projects, label: "Projects" };
+  function cleanText(s) {
+    return (s || "").trim().replace(/\s+/g, " ");
+  }
+
+  // Build grouped TOC model for a given page.
+  // Returns { label, groups: [{label, items:[{node,text,href}]}] } or null.
+  function buildTocModel(article) {
+    // Projects: group by the <details><summary> banner (Current / Past).
+    var projectCards = article.querySelectorAll(".projects-grid .project-card");
+    if (projectCards.length >= 2) {
+      var byGroup = {};
+      var order = [];
+      Array.prototype.forEach.call(projectCards, function (card) {
+        var details = card.closest("details");
+        var summary = details ? details.querySelector("summary") : null;
+        var groupLabel = summary ? cleanText(summary.textContent) : "Projects";
+        if (!byGroup[groupLabel]) {
+          byGroup[groupLabel] = { label: groupLabel, items: [], details: details };
+          order.push(groupLabel);
+        }
+        var title = card.querySelector(".project-title-text");
+        if (!title) return;
+        byGroup[groupLabel].items.push({ node: title, text: cleanText(title.textContent) });
+      });
+      var groups = order.map(function (k) { return byGroup[k]; });
+      if (groups.length) return { label: "Projects", groups: groups };
+    }
+
+    // Teaching: group by year parsed from the .teach-date text.
+    var teachBlocks = article.querySelectorAll(".teach-block");
+    if (teachBlocks.length >= 3) {
+      var yearMap = {};
+      var yearOrder = [];
+      Array.prototype.forEach.call(teachBlocks, function (block) {
+        var course = block.querySelector(".teach-course");
+        if (!course) return;
+        var date = block.querySelector(".teach-date");
+        var m = date ? (date.textContent.match(/20\d{2}/g) || []) : [];
+        var year = m.length ? m[m.length - 1] : "Other";
+        if (!yearMap[year]) {
+          yearMap[year] = { label: year, items: [] };
+          yearOrder.push(year);
+        }
+        yearMap[year].items.push({ node: course, text: cleanText(course.textContent) });
+      });
+      // Sort years descending (newest first).
+      yearOrder.sort(function (a, b) {
+        if (a === "Other") return 1;
+        if (b === "Other") return -1;
+        return parseInt(b, 10) - parseInt(a, 10);
+      });
+      var tGroups = yearOrder.map(function (k) { return yearMap[k]; });
+      if (tGroups.length) return { label: "Courses", groups: tGroups };
+    }
+
+    // Generic: h2 / h3 headings inside article.
+    var heads = article.querySelectorAll("h2, h3");
+    if (heads.length >= 3) {
+      var items = [];
+      Array.prototype.forEach.call(heads, function (h) {
+        items.push({ node: h, text: cleanText(h.textContent) });
+      });
+      return { label: "On this page", groups: [{ label: "", items: items }] };
+    }
+
     return null;
+  }
+
+  function renderToc(model) {
+    var toc = document.createElement("nav");
+    toc.className = "site-toc";
+    toc.setAttribute("aria-label", model.label);
+
+    var title = document.createElement("div");
+    title.className = "site-toc__title";
+    title.textContent = model.label;
+    toc.appendChild(title);
+
+    var nodeIndex = 0;
+    model.groups.forEach(function (group) {
+      if (group.label) {
+        var h = document.createElement("div");
+        h.className = "site-toc__group";
+        h.textContent = group.label;
+        toc.appendChild(h);
+      }
+      var ul = document.createElement("ul");
+      group.items.forEach(function (item) {
+        var n = item.node;
+        if (!n.id) n.id = "toc-" + (nodeIndex++) + "-" + slugify(item.text);
+        var li = document.createElement("li");
+        li.className = "site-toc__item";
+        var a = document.createElement("a");
+        a.href = "#" + n.id;
+        a.textContent = item.text;
+        // If target lives inside a closed <details>, opening the parent makes
+        // the anchor scroll to a visible element.
+        a.addEventListener("click", function () {
+          var parent = n.closest("details");
+          if (parent && !parent.open) parent.open = true;
+        });
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+      toc.appendChild(ul);
+    });
+
+    return toc;
   }
 
   function initTOC() {
     var article = document.querySelector("d-article, .d-article");
     if (!article) return;
-    // CV has its own expand/collapse UI; don't stack a TOC on top.
-    if (document.querySelector(".resume")) return;
-    var picked = pickTocTargets(article);
-    if (!picked) return;
-    var nodes = picked.nodes;
+    if (document.querySelector(".resume")) return; // CV has its own UI
+    var model = buildTocModel(article);
+    if (!model) return;
 
-    var toc = document.createElement("nav");
-    toc.className = "site-toc";
-    toc.setAttribute("aria-label", picked.label);
-
-    var title = document.createElement("div");
-    title.className = "site-toc__title";
-    title.textContent = picked.label;
-    toc.appendChild(title);
-
-    var list = document.createElement("ul");
-    toc.appendChild(list);
-
-    Array.prototype.forEach.call(nodes, function (n, i) {
-      if (!n.id) n.id = "toc-" + i + "-" + slugify(n.textContent);
-      var li = document.createElement("li");
-      li.className = "site-toc__item site-toc__item--" + (n.tagName || "").toLowerCase();
-      var a = document.createElement("a");
-      a.href = "#" + n.id;
-      a.textContent = (n.textContent || "").trim().replace(/\s+/g, " ");
-      li.appendChild(a);
-      list.appendChild(li);
-    });
-
-    // Insert the TOC at the very top of the article so it is always
-    // visible (also keeps it sticky on wide screens via CSS).
+    var toc = renderToc(model);
+    // Insert at the very top of the article. On wide screens, CSS pulls
+    // this out of flow as a sticky left rail; on narrow screens it stays
+    // inline at the top of the content.
     article.insertBefore(toc, article.firstChild);
 
-    // Highlight current section via IntersectionObserver
+    // Active-link tracking via IntersectionObserver
     if (!("IntersectionObserver" in window)) return;
     var linkByHash = {};
+    var allNodes = [];
     toc.querySelectorAll("a").forEach(function (a) { linkByHash[a.getAttribute("href")] = a; });
+    model.groups.forEach(function (g) {
+      g.items.forEach(function (i) { allNodes.push(i.node); });
+    });
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
@@ -256,7 +336,22 @@
         link.classList.add("is-active");
       });
     }, { rootMargin: "-20% 0px -65% 0px", threshold: 0 });
-    Array.prototype.forEach.call(nodes, function (n) { observer.observe(n); });
+    allNodes.forEach(function (n) { observer.observe(n); });
+  }
+
+  // ---------- Per-page background image (light mode only) ----------
+  function initPageBackground() {
+    var page = (location.pathname.split("/").pop() || "").toLowerCase();
+    if (!page || page === "/") page = "index.html";
+    var map = {
+      "index.html": "back1.jpg",
+      "cv.html": "back3.jpg",
+      "teaching.html": "back5.jpg",
+      "projects.html": "back4.jpg",
+      "research.html": "back2.jpg"
+    };
+    var file = map[page] || "back1.jpg";
+    document.documentElement.style.setProperty("--page-background", "url('images/" + file + "')");
   }
 
   // ---------- Analytics (GoatCounter) ----------
@@ -280,7 +375,11 @@
     }
   }
 
+  // Set background as early as possible so there is no flash.
+  try { initPageBackground(); } catch (e) { /* no-op */ }
+
   onReady(function () {
+    try { initPageBackground(); } catch (e) { /* no-op */ }
     try { initTheme(); } catch (e) { /* no-op */ }
     try { initBackToTop(); } catch (e) { /* no-op */ }
     try { initCv(); } catch (e) { /* no-op */ }
