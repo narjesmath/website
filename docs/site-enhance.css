@@ -529,16 +529,28 @@ html[data-theme="dark"] .cv-controls .cv-toggle-all:hover { background: #9D98FF;
 .icon-legend__label {
   font-weight: 500;
 }
+/* Theme-toggle button variant: same look as a link item but behaves as a
+   button with no underline / native button styling. */
+button.icon-legend__item {
+  font: inherit;
+  background: none;
+  border: 0;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+}
 
 /* Sticky left-rail placement (wide screens). The JS appends the legend
    to <body> in this mode so it can fix-position relative to the viewport
-   without being trapped by a containing block. */
+   without being trapped by a containing block. Vertically centered so
+   it sits in line with the prose below the page title. */
 .icon-legend--rail {
   position: fixed;
-  top: 96px;
-  left: max(12px, calc((100vw - 1180px) / 2 - 200px));
-  width: 180px;
-  max-height: calc(100vh - 160px);
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1.25rem;
+  width: 200px;
+  max-height: calc(100vh - 8rem);
   overflow-y: auto;
   padding: 1rem 1rem 1.1rem;
   background: rgba(255,255,255,0.88);
@@ -656,6 +668,12 @@ html[data-theme="dark"] .icon-legend__item:focus-visible {
 }
 .site-page-nav--next {
   right: 14px;
+}
+/* When a left-side rail (TOC or icon legend) is mounted at wide widths,
+   push the Previous arrow past it so the two don't overlap. The rails
+   occupy up to ~240px from the left edge, so 260px clears them. */
+@media (min-width: 1181px) {
+  html.has-side-rail .site-page-nav--prev { left: 260px; }
 }
 .site-page-nav--prev:hover,
 .site-page-nav--prev:focus-visible {

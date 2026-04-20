@@ -328,12 +328,14 @@
         if (toc.parentNode !== document.body) {
           document.body.appendChild(toc);
         }
+        document.documentElement.classList.add("has-side-rail");
       } else {
         toc.classList.remove("site-toc--rail");
         toc.classList.add("site-toc--inline");
         if (toc.parentNode !== article) {
           article.insertBefore(toc, article.firstChild);
         }
+        document.documentElement.classList.remove("has-side-rail");
       }
     }
     placeToc();
@@ -406,7 +408,8 @@
           { href: "teaching.html",  icon: "fa fa-chalkboard-teacher",  label: "Teaching" },
           { href: "projects.html",  icon: "fa fa-folder-open",         label: "Projects" },
           { href: "research.html",  icon: "fa fa-flask",               label: "Research" },
-          { href: "cv.html",        icon: "fa fa-file",                label: "CV" }
+          { href: "cv.html",        icon: "fa fa-file",                label: "CV" },
+          { action: "theme",        icon: "fas fa-moon",               label: "Dark mode" }
         ]
       },
       {
@@ -419,6 +422,14 @@
         ]
       }
     ];
+
+    function themeItemDescriptor() {
+      var isDark = document.documentElement.getAttribute("data-theme") === "dark";
+      return {
+        icon: isDark ? "fas fa-sun" : "fas fa-moon",
+        label: isDark ? "Light mode" : "Dark mode"
+      };
+    }
 
     function makeNode() {
       var nav = document.createElement("nav");
@@ -435,24 +446,52 @@
         ul.className = "icon-legend__list";
         g.items.forEach(function (it) {
           var li = document.createElement("li");
-          var a = document.createElement("a");
-          a.className = "icon-legend__item";
-          a.href = it.href;
-          a.title = it.label;
-          var isExternal = /^https?:/.test(it.href);
-          if (isExternal) { a.target = "_blank"; a.rel = "noopener"; }
+          var el;
+          var iconClass = it.icon;
+          var labelText = it.label;
+          if (it.action === "theme") {
+            // Render as a <button> that toggles the site theme rather
+            // than a navigation link. Icon + label reflect the *next*
+            // state (moon when light is active, sun when dark is).
+            var desc = themeItemDescriptor();
+            iconClass = desc.icon;
+            labelText = desc.label;
+            el = document.createElement("button");
+            el.type = "button";
+            el.className = "icon-legend__item";
+            el.setAttribute("aria-label", "Toggle " + labelText.toLowerCase());
+            el.title = labelText + " (t)";
+            el.addEventListener("click", function () {
+              toggleTheme();
+              // Reflect new theme immediately in this item only.
+              var d = themeItemDescriptor();
+              var ic = el.querySelector(".icon-legend__icon i");
+              var lb = el.querySelector(".icon-legend__label");
+              if (ic) ic.className = d.icon;
+              if (lb) lb.textContent = d.label;
+              el.title = d.label + " (t)";
+              el.setAttribute("aria-label", "Toggle " + d.label.toLowerCase());
+            });
+          } else {
+            el = document.createElement("a");
+            el.className = "icon-legend__item";
+            el.href = it.href;
+            el.title = it.label;
+            var isExternal = /^https?:/.test(it.href);
+            if (isExternal) { el.target = "_blank"; el.rel = "noopener"; }
+          }
           var iSpan = document.createElement("span");
           iSpan.className = "icon-legend__icon";
           var icon = document.createElement("i");
-          icon.className = it.icon;
+          icon.className = iconClass;
           icon.setAttribute("aria-hidden", "true");
           iSpan.appendChild(icon);
           var label = document.createElement("span");
           label.className = "icon-legend__label";
-          label.textContent = it.label;
-          a.appendChild(iSpan);
-          a.appendChild(label);
-          li.appendChild(a);
+          label.textContent = labelText;
+          el.appendChild(iSpan);
+          el.appendChild(label);
+          li.appendChild(el);
           ul.appendChild(li);
         });
         groupEl.appendChild(ul);
@@ -470,16 +509,21 @@
       if (mq.matches) {
         node.classList.add("icon-legend--rail");
         document.body.appendChild(node);
+        document.documentElement.classList.add("has-side-rail");
       } else {
         node.classList.add("icon-legend--inline");
-        // Insert after the bio card and before the page footer (which is
-        // the copyright/Back-to-Top block also nested inside d-article).
-        var footer = article.querySelector(":scope > footer");
-        if (footer) {
-          article.insertBefore(node, footer);
+        // Place the legend right under the page title "underline" -
+        // i.e. as the FIRST child of d-article, above the bio card -
+        // rather than between the bio and the footer. The stray <hr>
+        // Distill inserts before the first paragraph on some pages is
+        // kept in place and simply sits above the legend.
+        var firstCard = article.querySelector(":scope > .card, :scope > p");
+        if (firstCard) {
+          article.insertBefore(node, firstCard);
         } else {
           article.appendChild(node);
         }
+        document.documentElement.classList.remove("has-side-rail");
       }
     }
 
