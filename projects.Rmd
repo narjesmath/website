@@ -34,7 +34,7 @@ title: "Projects"
 </details>
 
 <details>
-<summary>Older Projects</summary>
+<summary>Selected Past Projects</summary>
 
 <div class="projects-grid">
   <article class="project-card">

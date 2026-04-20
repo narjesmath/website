@@ -2712,6 +2712,19 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
 <style id="custom-site-overrides">
+/* ---------- Profile photo: circular, cropped ---------- */
+.card-img-round {
+  flex: 0 0 auto !important;
+  border-radius: 50% !important;
+  border-top-left-radius: 50% !important;
+  border-bottom-left-radius: 50% !important;
+  object-fit: cover;
+  object-position: center 20%;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.12), 0 0 0 1px rgba(202,34,94,0.25);
+  margin: 1.25rem 0 0.5rem 1.5rem;
+}
+
 /* ---------- CV Education (academic layout) ---------- */
 .edu-block { margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid #e0e0e0; }
 .edu-block:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
@@ -2841,7 +2854,7 @@ ul.teach-bullets, .teach-block .teach-bullets { margin: 0.7rem 0 0 1.2rem; paddi
 
 <div class="d-article">
 <div class="card">
-<p><img src="images/narjes.png" class="card-img" style="width:170px; height:auto;" /></p>
+<p><img src="images/narjes.png" class="card-img card-img-round" style="width:170px; height:170px;" /></p>
 <div class="card-content">
 <p>I am a third-year PhD researcher in the <a href="https://www.geog.ucsb.edu/about" target="_blank">Department of Geography</a> at the University of California, Santa Barbara, and a Graduate Student Researcher with the <a href="https://www.chc.ucsb.edu/" target="_blank">Climate Hazards Center</a>. My research lies at the intersection of climate science, remote sensing, and AI/ML, with an emphasis on extreme climate events, environmental risk, and decision-relevant modeling. I also completed a Master’s in Mathematical Statistics at UCSB, with additional graduate training in applied statistics and data science.</p>
 <p>Using satellite data, geospatial methods, and statistical and machine learning approaches, I develop quantitative frameworks to detect, model, and better understand droughts, floods, and other climate extremes. My broader interests include climate resilience, early warning, and the socioeconomic impacts of environmental risk, particularly in vulnerable and developing regions.</p>
