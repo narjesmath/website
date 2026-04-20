@@ -363,23 +363,21 @@ html:not([data-theme="dark"]) footer { background-color: rgba(255,255,255,0.72);
 html:not([data-theme="dark"]) d-article,
 html:not([data-theme="dark"]) .d-article { background: transparent; }
 
-/* Research page: the article is mostly prose (no card children), so sit
-   the text on a translucent white card so the tiled background reads
-   clearly around it without hurting readability. Distill normally uses a
-   CSS grid on <d-article> to put prose in a centered "middle" column; on
-   this page we flatten that so content fills the card. */
+/* Research page: sit the prose on a translucent white card so the tiled
+   background reads clearly around it. The card is placed on the <p>
+   itself (not on d-article) so the page <footer> with the copyright and
+   Back to Top button stays *outside* the card. Distill normally uses a
+   CSS grid on <d-article> to put prose in a centered "middle" column;
+   on this page we flatten that so the card can span the article width. */
 html:not([data-theme="dark"])[data-page="research"] d-article,
 html:not([data-theme="dark"])[data-page="research"] .d-article {
-  background: rgba(255,255,255,0.88);
-  border: 1px solid rgba(106,102,213,0.14);
-  border-radius: 14px;
-  box-shadow: 0 6px 22px rgba(30,58,138,0.08), 0 1px 3px rgba(0,0,0,0.04);
-  padding: 2rem 2.25rem;
-  margin: 1.5rem auto 2rem;
-  max-width: min(860px, calc(100% - 2rem));
   display: block !important;
   grid-template-columns: none !important;
   grid-column-gap: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
 }
 html:not([data-theme="dark"])[data-page="research"] d-article > *,
 html:not([data-theme="dark"])[data-page="research"] .d-article > * {
@@ -389,9 +387,32 @@ html:not([data-theme="dark"])[data-page="research"] .d-article > * {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
+html:not([data-theme="dark"])[data-page="research"] d-article > p,
+html:not([data-theme="dark"])[data-page="research"] .d-article > p {
+  background: rgba(255,255,255,0.88);
+  border: 1px solid rgba(106,102,213,0.14);
+  border-radius: 14px;
+  box-shadow: 0 6px 22px rgba(30,58,138,0.08), 0 1px 3px rgba(0,0,0,0.04);
+  padding: 2rem 2.25rem;
+  margin: 1.5rem auto 2rem !important;
+  max-width: min(860px, calc(100% - 2rem)) !important;
+}
+/* Keep the page <footer> visually separate from the card. */
+html:not([data-theme="dark"])[data-page="research"] d-article > footer,
+html:not([data-theme="dark"])[data-page="research"] .d-article > footer {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+/* Hide the stray <hr> Distill/knitr inserts above the first paragraph so
+   it doesn't float orphaned above the card. */
+html:not([data-theme="dark"])[data-page="research"] d-article > hr:first-of-type,
+html:not([data-theme="dark"])[data-page="research"] .d-article > hr:first-of-type {
+  display: none !important;
+}
 @media (max-width: 640px) {
-  html:not([data-theme="dark"])[data-page="research"] d-article,
-  html:not([data-theme="dark"])[data-page="research"] .d-article {
+  html:not([data-theme="dark"])[data-page="research"] d-article > p,
+  html:not([data-theme="dark"])[data-page="research"] .d-article > p {
     padding: 1.25rem 1.1rem;
     border-radius: 10px;
   }
