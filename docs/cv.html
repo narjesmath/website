@@ -2794,76 +2794,190 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
 <style id="custom-site-overrides">
-/* ---------- CV: shared section styling ---------- */
-.resume { max-width: 860px; margin: 0 auto; }
-.cv-section { margin-bottom: 2.25rem; }
+/* ========== CV: page container ========== */
+.resume { max-width: 860px; margin: 0 auto; padding: 0.5rem 0 1rem; }
+.cv-section { margin-bottom: 2.5rem; }
+
+/* ========== Section headings (icon-badge + underline) ========== */
 .cv-section h3 {
-  font-family: var(--heading-font), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 1.1rem; font-weight: 600; letter-spacing: 0.06em;
-  text-transform: uppercase; color: #6A66D5;
-  border-bottom: 1.5px solid #6A66D5; padding-bottom: 0.35rem; margin: 0 0 1.1rem;
+  display: flex; align-items: center; gap: 0.7rem;
+  font-family: var(--heading-font), serif;
+  font-size: 1rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6A66D5;
+  margin: 0 0 1.2rem; padding: 0 0 0.55rem;
+  border-bottom: 1.5px solid rgba(106,102,213,0.35);
 }
-.cv-section h3 i { margin-right: 0.5rem; color: #6A66D5; }
+.cv-section h3 i {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2rem; height: 2rem;
+  border-radius: 8px;
+  background: #EAE9FB; color: #6A66D5;
+  font-size: 0.95rem; margin-right: 0;
+  flex: 0 0 auto;
+}
+section.edu.cv-section h3               { color: #6A66D5; border-bottom-color: rgba(106,102,213,0.35); }
+section.edu.cv-section h3 i             { background: #EAE9FB; color: #6A66D5; }
+section.experience.cv-section h3,
+section.exp.cv-section h3               { color: #8B5CC7; border-bottom-color: rgba(139,92,199,0.35); }
+section.experience.cv-section h3 i,
+section.exp.cv-section h3 i             { background: #F1E9FB; color: #8B5CC7; }
+section.skills-prog.cv-section h3       { color: #3A7FC4; border-bottom-color: rgba(58,127,196,0.35); }
+section.skills-prog.cv-section h3 i     { background: #E4EEFB; color: #3A7FC4; }
+section.interests.cv-section h3         { color: #5B6FC7; border-bottom-color: rgba(91,111,199,0.35); }
+section.interests.cv-section h3 i       { background: #E9EBFB; color: #5B6FC7; }
 
-/* ---------- Per-section accent colors (color variety) ---------- */
-section.edu.cv-section h3            { color: #6A66D5; border-bottom-color: #6A66D5; }
-section.edu.cv-section h3 i          { color: #6A66D5; }
-section.experience.cv-section h3, section.exp.cv-section h3 { color: #8B5CC7; border-bottom-color: #8B5CC7; }
-section.experience.cv-section h3 i, section.exp.cv-section h3 i { color: #8B5CC7; }
-section.skills-prog.cv-section h3    { color: #3A7FC4; border-bottom-color: #3A7FC4; }
-section.skills-prog.cv-section h3 i  { color: #3A7FC4; }
-section.skills-prog.cv-section .skill-label { color: #3A7FC4; }
-section.interests.cv-section h3      { color: #5B6FC7; border-bottom-color: #5B6FC7; }
-section.interests.cv-section h3 i    { color: #5B6FC7; }
-/* Multi-color interest chips */
-section.interests .interests-items li:nth-child(4n+1) { background: #EAE9FB; color: #4F4BB8; }
-section.interests .interests-items li:nth-child(4n+1) i { color: #4F4BB8; }
-section.interests .interests-items li:nth-child(4n+2) { background: #E4EEFB; color: #3A7FC4; }
-section.interests .interests-items li:nth-child(4n+2) i { color: #3A7FC4; }
-section.interests .interests-items li:nth-child(4n+3) { background: #F1E9FB; color: #7B4CC0; }
-section.interests .interests-items li:nth-child(4n+3) i { color: #7B4CC0; }
-section.interests .interests-items li:nth-child(4n+4) { background: #E9F2FB; color: #4F77C7; }
-section.interests .interests-items li:nth-child(4n+4) i { color: #4F77C7; }
-/* Experience dates / institution accent tint */
-.exp-date { color: #8B5CC7 !important; }
-/* Education dates accent */
-.edu-head .edu-date { color: #6A66D5 !important; }
+/* ========== Shared CV entry card (edu + exp) ========== */
+.edu-block, .exp-block {
+  position: relative;
+  margin: 0 0 0.9rem;
+  padding: 0.95rem 1.15rem 0.95rem 1.5rem;
+  background: #fff;
+  border: 1px solid #ECECF5;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(20,20,40,0.03);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.edu-block::before, .exp-block::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 4px; border-radius: 10px 0 0 10px;
+}
+.edu-block:hover, .exp-block:hover {
+  transform: translateX(2px);
+  box-shadow: 0 6px 18px rgba(20,20,40,0.06), 0 2px 4px rgba(20,20,40,0.04);
+  border-color: #E0DFF3;
+}
+.edu-block:last-child, .exp-block:last-child { margin-bottom: 0; }
 
-/* ---------- CV Experience ---------- */
-.exp-block { margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid #ececec; }
-.exp-block:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-.exp-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.15rem; }
-.exp-role { flex: 1 1 14rem; line-height: 1.35; color: #1f1f1f; font-size: 1rem; }
-.exp-head .exp-date { flex: 0 0 auto; text-align: right; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #7a7a7a; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.exp-inst { margin: 0.2rem 0 0; font-size: 0.94rem; line-height: 1.5; color: #444; font-style: normal; }
-ul.exp-bullets { margin: 0.5rem 0 0 1.2rem; padding: 0; list-style-type: disc; }
-.exp-bullets li { margin-bottom: 0.3rem; line-height: 1.55; font-size: 0.94rem; color: #333; }
-.exp-bullets li:last-child { margin-bottom: 0; }
+/* Head: title + date pill */
+.edu-head, .exp-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 1rem; flex-wrap: wrap; margin: 0 0 0.3rem;
+}
+.edu-degree, .exp-role {
+  flex: 1 1 16rem; line-height: 1.35;
+  font-family: var(--heading-font), serif;
+  font-size: 1.03rem; font-weight: 500; color: #1f1f1f;
+  letter-spacing: 0.005em;
+}
+.edu-degree strong, .exp-role strong { font-weight: 700; }
+.edu-head .edu-date, .exp-head .exp-date {
+  flex: 0 0 auto; text-align: center; white-space: nowrap;
+  padding: 0.2rem 0.65rem;
+  background: #F1F0FB; color: #5a5a8a !important;
+  border-radius: 999px;
+  font-family: var(--body-font), sans-serif;
+  font-size: 0.7rem; font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.09em; text-transform: uppercase;
+  text-decoration: none;
+}
 
-/* ---------- CV Skills (categorized rows) ---------- */
-.skill-row { display: flex; align-items: baseline; gap: 1rem; padding: 0.5rem 0; border-bottom: 1px solid #f0f0f0; flex-wrap: wrap; }
-.skill-row:last-of-type { border-bottom: none; }
-.skill-label { flex: 0 0 12rem; font-weight: 600; font-size: 0.88rem; letter-spacing: 0.04em; text-transform: uppercase; color: #6A66D5; line-height: 1.45; }
-.skill-items { flex: 1 1 20rem; font-size: 0.94rem; line-height: 1.55; color: #333; }
+/* Institution line */
+.edu-inst, .exp-inst {
+  margin: 0.1rem 0 0; font-size: 0.9rem; line-height: 1.5;
+  color: #666; font-style: normal;
+}
+
+/* Bullets with colored dot markers */
+ul.edu-bullets, ul.exp-bullets,
+.edu ul.edu-bullets, .exp ul.exp-bullets, .experience ul.exp-bullets {
+  margin: 0.55rem 0 0; padding: 0 0 0 1.15rem; list-style: none;
+}
+.edu-bullets li, .exp-bullets li {
+  position: relative; margin-bottom: 0.3rem; padding-left: 0.1rem;
+  line-height: 1.55; font-size: 0.92rem; color: #3a3a3a;
+}
+.edu-bullets li::before, .exp-bullets li::before {
+  content: ""; position: absolute; left: -0.9rem; top: 0.55em;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: #6A66D5; opacity: 0.65;
+}
+.edu-bullets li:last-child, .exp-bullets li:last-child { margin-bottom: 0; }
+
+/* Rotating accent ribbons (edu — 4 blocks; exp — 4 blocks) */
+section.edu > .edu-block:nth-of-type(1)::before { background: #6A66D5; }
+section.edu > .edu-block:nth-of-type(2)::before { background: #8B5CC7; }
+section.edu > .edu-block:nth-of-type(3)::before { background: #3A7FC4; }
+section.edu > .edu-block:nth-of-type(4)::before { background: #5B6FC7; }
+section.edu > .edu-block:nth-of-type(5)::before { background: #7B4CC0; }
+section.edu > .edu-block:nth-of-type(1) .edu-bullets li::before { background: #6A66D5; }
+section.edu > .edu-block:nth-of-type(2) .edu-bullets li::before { background: #8B5CC7; }
+section.edu > .edu-block:nth-of-type(3) .edu-bullets li::before { background: #3A7FC4; }
+section.edu > .edu-block:nth-of-type(4) .edu-bullets li::before { background: #5B6FC7; }
+section.experience > .exp-block:nth-of-type(1)::before,
+section.exp > .exp-block:nth-of-type(1)::before { background: #8B5CC7; }
+section.experience > .exp-block:nth-of-type(2)::before,
+section.exp > .exp-block:nth-of-type(2)::before { background: #3A7FC4; }
+section.experience > .exp-block:nth-of-type(3)::before,
+section.exp > .exp-block:nth-of-type(3)::before { background: #5B6FC7; }
+section.experience > .exp-block:nth-of-type(4)::before,
+section.exp > .exp-block:nth-of-type(4)::before { background: #7B4CC0; }
+section.experience > .exp-block:nth-of-type(1) .exp-bullets li::before,
+section.exp > .exp-block:nth-of-type(1) .exp-bullets li::before { background: #8B5CC7; }
+section.experience > .exp-block:nth-of-type(2) .exp-bullets li::before,
+section.exp > .exp-block:nth-of-type(2) .exp-bullets li::before { background: #3A7FC4; }
+section.experience > .exp-block:nth-of-type(3) .exp-bullets li::before,
+section.exp > .exp-block:nth-of-type(3) .exp-bullets li::before { background: #5B6FC7; }
+section.experience > .exp-block:nth-of-type(4) .exp-bullets li::before,
+section.exp > .exp-block:nth-of-type(4) .exp-bullets li::before { background: #7B4CC0; }
+
+/* ========== Skills (upgraded rows) ========== */
+section.skills-prog { }
+.skill-row {
+  display: flex; align-items: baseline; gap: 1rem;
+  padding: 0.7rem 1rem;
+  background: #fff;
+  border: 1px solid #ECECF5;
+  border-radius: 8px;
+  margin-bottom: 0.55rem;
+  flex-wrap: wrap;
+  transition: border-color .2s ease, background .2s ease;
+}
+.skill-row:hover { background: #FBFAFE; border-color: #E0DFF3; }
+.skill-row:last-of-type { margin-bottom: 0; }
+.skill-label {
+  flex: 0 0 12rem;
+  display: inline-flex; align-items: center;
+  padding: 0.2rem 0.65rem;
+  font-weight: 700; font-size: 0.72rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  background: #E4EEFB; color: #3A7FC4 !important;
+  border-radius: 999px; line-height: 1.1;
+  white-space: nowrap; align-self: flex-start;
+}
+.skill-items { flex: 1 1 18rem; font-size: 0.92rem; line-height: 1.55; color: #3a3a3a; }
+/* Rotating skill-label colors for variety */
+section.skills-prog .skill-row:nth-of-type(1) .skill-label { background: #EAE9FB; color: #6A66D5 !important; }
+section.skills-prog .skill-row:nth-of-type(2) .skill-label { background: #F1E9FB; color: #8B5CC7 !important; }
+section.skills-prog .skill-row:nth-of-type(3) .skill-label { background: #E4EEFB; color: #3A7FC4 !important; }
+section.skills-prog .skill-row:nth-of-type(4) .skill-label { background: #E9EBFB; color: #5B6FC7 !important; }
+section.skills-prog .skill-row:nth-of-type(5) .skill-label { background: #F0E7FB; color: #7B4CC0 !important; }
 @media (max-width: 640px) {
-  .skill-row { flex-direction: column; gap: 0.25rem; }
+  .skill-row { flex-direction: column; gap: 0.5rem; padding: 0.75rem 0.9rem; }
   .skill-label { flex: 1 1 100%; }
 }
 
-/* ---------- CV Interests ---------- */
+/* ========== Interests (leave chips as-is, tweak section spacing) ========== */
 section.interests .interests-items { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; }
-section.interests .interests-items li { list-style: none; display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.85rem; background: #EAE9FB; color: #4F4BB8; border-radius: 999px; font-size: 0.88rem; font-weight: 500; line-height: 1; white-space: nowrap; }
-section.interests .interests-items li i { color: #6A66D5; font-size: 0.85rem; width: 1.25em; min-width: 1.25em; text-align: center; display: inline-block; flex: 0 0 auto; line-height: 1; }
+section.interests .interests-items li { list-style: none; display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.4rem 0.9rem; background: #EAE9FB; color: #4F4BB8; border-radius: 999px; font-size: 0.86rem; font-weight: 500; line-height: 1; white-space: nowrap; border: 1px solid rgba(106,102,213,0.12); }
+section.interests .interests-items li i { color: #6A66D5; font-size: 0.82rem; width: 1.25em; min-width: 1.25em; text-align: center; display: inline-block; flex: 0 0 auto; line-height: 1; }
+section.interests .interests-items li:nth-child(4n+1) { background: #EAE9FB; color: #4F4BB8; border-color: rgba(79,75,184,0.15); }
+section.interests .interests-items li:nth-child(4n+1) i { color: #4F4BB8; }
+section.interests .interests-items li:nth-child(4n+2) { background: #E4EEFB; color: #3A7FC4; border-color: rgba(58,127,196,0.15); }
+section.interests .interests-items li:nth-child(4n+2) i { color: #3A7FC4; }
+section.interests .interests-items li:nth-child(4n+3) { background: #F1E9FB; color: #7B4CC0; border-color: rgba(123,76,192,0.15); }
+section.interests .interests-items li:nth-child(4n+3) i { color: #7B4CC0; }
+section.interests .interests-items li:nth-child(4n+4) { background: #E9F2FB; color: #4F77C7; border-color: rgba(79,119,199,0.15); }
+section.interests .interests-items li:nth-child(4n+4) i { color: #4F77C7; }
 
-/* ---------- CV Education (academic layout) ---------- */
-.edu-block { margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid #e0e0e0; }
-.edu-block:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-.edu-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
-.edu-degree { flex: 1 1 12rem; line-height: 1.35; }
-.edu-head .edu-date { flex: 0 0 auto; text-align: right; font-size: 0.88rem; font-variant-numeric: tabular-nums; letter-spacing: 0.01em; color: #444; white-space: nowrap; }
-.edu-inst { margin: 0.35rem 0 0; font-size: 0.95rem; line-height: 1.45; color: #333; }
-.edu ul.edu-bullets { margin: 0.45rem 0 0 1.2rem; padding: 0; list-style-type: disc; }
-.edu ul.edu-bullets li { margin-bottom: 0.3rem; line-height: 1.55; font-size: 0.94rem; color: #333; }
+/* Mobile tweaks for CV cards */
+@media (max-width: 640px) {
+  .edu-block, .exp-block { padding: 0.85rem 1rem 0.85rem 1.25rem; }
+  .edu-head, .exp-head { gap: 0.4rem; }
+  .edu-head .edu-date, .exp-head .exp-date { order: -1; align-self: flex-start; }
+  .edu-degree, .exp-role { flex: 1 1 100%; }
+}
 
 /* ---------- Teaching entries ---------- */
 section.teaching { max-width: 820px; margin: 1.5rem auto 2rem; }
