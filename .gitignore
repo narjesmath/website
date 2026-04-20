@@ -1,4 +1,20 @@
+# macOS
+.DS_Store
+
+# RStudio / R
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
+*.Rproj
+
+# Distill source (not needed on GitHub Pages; only docs/ is served)
+*.Rmd
+_site.yml
+README.html
+
+# Source assets — the copies under docs/ are what gets served
+/css/
+/images/
+/pdfs/
+/projects/
