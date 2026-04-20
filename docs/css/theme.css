@@ -368,6 +368,47 @@ details code {font-size: 1.1em;}
   background-color: #003f73;
 }
 
+/* ---------- CV Education blocks ---------- */
+.edu-block {
+  margin-bottom: 1.35rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+.edu-block:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.edu-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.25rem;
+}
+.edu-row .edu-date {
+  flex: 0 0 auto;
+  text-align: right;
+  font-size: 0.92rem;
+  color: #555;
+}
+.edu-sub {
+  margin: 0.4rem 0 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+.edu ul.edu-bullets {
+  margin: 0.5rem 0 0 1.25rem;
+  padding: 0;
+  list-style-type: disc;
+}
+.edu ul.edu-bullets li {
+  margin-bottom: 0.35rem;
+  line-height: 1.5;
+  color: var(--body-color, #333);
+}
+
 /* ---------- Section Titles ---------- */
 section {
   margin-bottom: 2rem;
