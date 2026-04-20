@@ -145,7 +145,7 @@ output:
       <li><i class="fas fa-fw fa-palette"></i> Art</li>
       <li><i class="fas fa-fw fa-book"></i> Books</li>
       <li><i class="fas fa-fw fa-film"></i> Movies</li>
-      <li><i class="fas fa-fw fa-music"></i> Music</li>
+      <li><i class="fas fa-fw fa-compact-disc"></i> Music</li>
     </ul>
    </details>
   </section>

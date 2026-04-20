@@ -365,7 +365,9 @@ html:not([data-theme="dark"]) .d-article { background: transparent; }
 
 /* Research page: the article is mostly prose (no card children), so sit
    the text on a translucent white card so the tiled background reads
-   clearly around it without hurting readability. */
+   clearly around it without hurting readability. Distill normally uses a
+   CSS grid on <d-article> to put prose in a centered "middle" column; on
+   this page we flatten that so content fills the card. */
 html:not([data-theme="dark"])[data-page="research"] d-article,
 html:not([data-theme="dark"])[data-page="research"] .d-article {
   background: rgba(255,255,255,0.88);
@@ -375,6 +377,17 @@ html:not([data-theme="dark"])[data-page="research"] .d-article {
   padding: 2rem 2.25rem;
   margin: 1.5rem auto 2rem;
   max-width: min(860px, calc(100% - 2rem));
+  display: block !important;
+  grid-template-columns: none !important;
+  grid-column-gap: 0 !important;
+}
+html:not([data-theme="dark"])[data-page="research"] d-article > *,
+html:not([data-theme="dark"])[data-page="research"] .d-article > * {
+  grid-column: 1 / -1 !important;
+  max-width: 100% !important;
+  width: auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 @media (max-width: 640px) {
   html:not([data-theme="dark"])[data-page="research"] d-article,

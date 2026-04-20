@@ -677,22 +677,23 @@ section.interests .interests-items li {
   white-space: nowrap;
 }
 section.interests .interests-items li i {
-  color: #6A66D5;
-  font-size: 0.9rem;
-  flex: 0 0 1.15em;
-  width: 1.15em;
-  min-width: 1.15em;
-  max-width: 1.15em;
-  height: 1em;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  line-height: 1;
+  color: #6A66D5 !important;
+  font-size: 0.9rem !important;
+  flex: 0 0 1.15em !important;
+  width: 1.15em !important;
+  min-width: 1.15em !important;
+  max-width: 1.15em !important;
+  height: 1em !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
 }
-section.interests .interests-items li i.fa-music { font-size: 1rem; }
-section.interests .interests-items li i.fa-book  { font-size: 0.88rem; }
-section.interests .interests-items li i.fa-film  { font-size: 0.88rem; }
+section.interests .interests-items li i.fa-compact-disc { font-size: 0.95rem !important; }
+section.interests .interests-items li i.fa-book  { font-size: 0.88rem !important; }
+section.interests .interests-items li i.fa-film  { font-size: 0.88rem !important; }
 
 /* ---------- CV Education (academic layout) ---------- */
 .edu-block {
