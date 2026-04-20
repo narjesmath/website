@@ -121,6 +121,7 @@ output:
   <ul class="teach-bullets">
     <li>Led three discussion sections (150+ students) and developed materials in Python, LaTeX, R, and Quarto.</li>
     <li>Designed and graded problem sets on externalities, public goods, game theory, and resource management.</li>
+    <li>Developed and shared an interactive <a href="https://demandappgit-hnahbczyjr4eqkwz93gqdu.streamlit.app/" target="_blank" rel="noopener">Streamlit app</a> to help students visualize demand curves and build intuition about core microeconomic concepts.</li>
     <li>Delivered a guest lecture on <em>Externalities &amp; Public Goods</em>.</li>
   </ul>
 </div>
