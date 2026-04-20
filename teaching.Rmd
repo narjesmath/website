@@ -9,6 +9,18 @@ output:
 
 <section class="experience teaching">
 
+<div class="teach-intro">
+  <p class="teach-tagline">Teaching at UC Santa Barbara since 2021 — across geography, statistics, environmental studies, and economics, with a focus on applied quantitative methods and hands-on learning.</p>
+  <div class="teach-stats">
+    <div class="teach-stat"><span class="teach-stat-num">8</span><span class="teach-stat-label">Courses</span></div>
+    <div class="teach-stat"><span class="teach-stat-num">5</span><span class="teach-stat-label">Departments</span></div>
+    <div class="teach-stat"><span class="teach-stat-num">600+</span><span class="teach-stat-label">Students</span></div>
+    <div class="teach-stat"><span class="teach-stat-num">3</span><span class="teach-stat-label">Guest Lectures</span></div>
+  </div>
+</div>
+
+<div class="teach-list">
+
 <div class="teach-block">
   <div class="teach-head">
     <h4 class="teach-course">Remote Sensing of the Environment II <span class="teach-code">(GEOG 115B)</span></h4>
@@ -147,6 +159,8 @@ output:
     <li>Guest-lectured on <em>Externalities &amp; Public Goods</em> and <em>Stackelberg vs. Cournot Oligopoly</em>.</li>
   </ul>
 </div>
+
+</div><!-- /teach-list -->
 
 </section>
 
