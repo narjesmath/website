@@ -372,7 +372,7 @@
     // [background file, white-overlay alpha]. Lower alpha = image more visible.
     var map = {
       "index.html":    ["back6.jpg",  0.82],
-      "cv.html":       ["back7.jpg",  0.78],
+      "cv.html":       ["back7.jpg",  0.62],
       "teaching.html": ["back5.jpg",  0.86],
       "projects.html": ["back4.jpg",  0.74],
       "research.html": ["back10.jpg", 0.72]

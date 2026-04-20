@@ -684,16 +684,33 @@ html[data-theme="dark"] .icon-legend__item:focus-visible {
   transform: translateY(-50%) translateX(2px);
 }
 
-/* Dark mode */
-html[data-theme="dark"] .site-page-nav {
-  background: rgba(159,155,255,0.92);
-  color: #0E1020;
-  border-color: rgba(255,255,255,0.18);
+/* Dark mode: use a solid deep-indigo chip with white icon + label so the
+   arrows are clearly legible against the dark page background. */
+html[data-theme="dark"] .site-page-nav,
+html[data-theme="dark"] .site-page-nav:link,
+html[data-theme="dark"] .site-page-nav:visited {
+  background: rgba(60,58,135,0.92);
+  color: #ffffff !important;
+  border-color: rgba(191,187,255,0.4);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.2);
+}
+html[data-theme="dark"] .site-page-nav .site-page-nav__icon,
+html[data-theme="dark"] .site-page-nav .site-page-nav__icon i,
+html[data-theme="dark"] .site-page-nav .site-page-nav__label {
+  color: #ffffff !important;
 }
 html[data-theme="dark"] .site-page-nav:hover,
 html[data-theme="dark"] .site-page-nav:focus-visible {
-  background: #BFBBFF;
-  color: #0E1020;
+  background: #6A66D5;
+  color: #ffffff !important;
+}
+html[data-theme="dark"] .site-page-nav:hover .site-page-nav__icon,
+html[data-theme="dark"] .site-page-nav:hover .site-page-nav__icon i,
+html[data-theme="dark"] .site-page-nav:hover .site-page-nav__label,
+html[data-theme="dark"] .site-page-nav:focus-visible .site-page-nav__icon,
+html[data-theme="dark"] .site-page-nav:focus-visible .site-page-nav__icon i,
+html[data-theme="dark"] .site-page-nav:focus-visible .site-page-nav__label {
+  color: #ffffff !important;
 }
 
 /* Hide the labels on narrow screens so only compact arrow chips show,
