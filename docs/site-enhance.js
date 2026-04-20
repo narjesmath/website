@@ -370,7 +370,7 @@
     // [background file, white-overlay alpha]. Lower alpha = image more visible.
     var map = {
       "index.html":    ["back6.jpg",  0.82],
-      "cv.html":       ["back9.jpg",  0.72],
+      "cv.html":       ["back7.jpg",  0.78],
       "teaching.html": ["back5.jpg",  0.86],
       "projects.html": ["back4.jpg",  0.74],
       "research.html": ["back10.jpg", 0.72]
@@ -492,6 +492,87 @@
     }
   }
 
+  // ---------- Page-to-page nav arrows ----------
+  // Floating prev/next buttons + global arrow-key handler that cycle
+  // through the top-nav pages (About -> Teaching -> Projects ->
+  // Research -> CV). No wrap-around; arrows are hidden at the ends.
+  var PAGE_ORDER = [
+    { href: "index.html",    label: "About" },
+    { href: "teaching.html", label: "Teaching" },
+    { href: "projects.html", label: "Projects" },
+    { href: "research.html", label: "Research" },
+    { href: "cv.html",       label: "CV" }
+  ];
+
+  function currentPageIndex() {
+    var page = (location.pathname.split("/").pop() || "").toLowerCase();
+    if (!page || page === "/") page = "index.html";
+    for (var i = 0; i < PAGE_ORDER.length; i++) {
+      if (PAGE_ORDER[i].href === page) return i;
+    }
+    return -1;
+  }
+
+  function initPageNav() {
+    var idx = currentPageIndex();
+    if (idx < 0) return;
+    var prev = idx > 0 ? PAGE_ORDER[idx - 1] : null;
+    var next = idx < PAGE_ORDER.length - 1 ? PAGE_ORDER[idx + 1] : null;
+
+    function makeButton(kind, target) {
+      if (!target) return null;
+      var a = document.createElement("a");
+      a.className = "site-page-nav site-page-nav--" + kind;
+      a.href = target.href;
+      var verb = kind === "prev" ? "Previous" : "Next";
+      a.setAttribute("aria-label", verb + ": " + target.label);
+      a.setAttribute(
+        "title",
+        verb + ": " + target.label + " (" + (kind === "prev" ? "\u2190" : "\u2192") + ")"
+      );
+      var icon = document.createElement("span");
+      icon.className = "site-page-nav__icon";
+      icon.setAttribute("aria-hidden", "true");
+      icon.innerHTML = kind === "prev"
+        ? '<i class="fas fa-chevron-left"></i>'
+        : '<i class="fas fa-chevron-right"></i>';
+      var label = document.createElement("span");
+      label.className = "site-page-nav__label";
+      label.textContent = target.label;
+      if (kind === "prev") {
+        a.appendChild(icon);
+        a.appendChild(label);
+      } else {
+        a.appendChild(label);
+        a.appendChild(icon);
+      }
+      document.body.appendChild(a);
+      return a;
+    }
+
+    makeButton("prev", prev);
+    makeButton("next", next);
+
+    function isTypingTarget(el) {
+      if (!el) return false;
+      var tag = (el.tagName || "").toLowerCase();
+      if (tag === "input" || tag === "textarea" || tag === "select") return true;
+      if (el.isContentEditable) return true;
+      return false;
+    }
+
+    document.addEventListener("keydown", function (e) {
+      if (e.defaultPrevented) return;
+      if (e.altKey || e.ctrlKey || e.metaKey) return;
+      if (isTypingTarget(e.target)) return;
+      if (e.key === "ArrowRight" && next) {
+        location.href = next.href;
+      } else if (e.key === "ArrowLeft" && prev) {
+        location.href = prev.href;
+      }
+    });
+  }
+
   // ---------- Analytics (GoatCounter) ----------
   function initAnalytics() {
     var code = window.SITE_ANALYTICS_CODE;
@@ -523,6 +604,7 @@
     try { initCv(); } catch (e) { /* no-op */ }
     try { initTOC(); } catch (e) { /* no-op */ }
     try { initIconLegend(); } catch (e) { /* no-op */ }
+    try { initPageNav(); } catch (e) { /* no-op */ }
     try { initAnalytics(); } catch (e) { /* no-op */ }
   });
 })();
