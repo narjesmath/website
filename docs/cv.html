@@ -2798,6 +2798,36 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 .resume { max-width: 860px; margin: 0 auto; padding: 0.5rem 0 1rem; }
 .cv-section { margin-bottom: 2.5rem; }
 
+/* ========== Collapsible section wrapper ========== */
+.cv-section > details { margin: 0; }
+.cv-section > details > summary {
+  list-style: none;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.cv-section > details > summary::-webkit-details-marker { display: none; }
+.cv-section > details > summary::marker { content: ""; }
+.cv-section > details > summary h3 { position: relative; padding-right: 2.25rem; }
+.cv-section > details > summary h3::after {
+  content: "\25BE"; /* down triangle */
+  position: absolute;
+  right: 0.1rem;
+  top: 50%;
+  transform: translateY(-65%) rotate(-90deg);
+  font-size: 0.95rem;
+  line-height: 1;
+  opacity: 0.55;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  color: inherit;
+}
+.cv-section > details[open] > summary h3::after {
+  transform: translateY(-65%) rotate(0deg);
+  opacity: 0.85;
+}
+.cv-section > details > summary:hover h3::after { opacity: 1; }
+.cv-section > details > summary:focus-visible h3 { outline: 2px solid rgba(106,102,213,0.35); outline-offset: 4px; border-radius: 4px; }
+
 /* ========== Section headings (icon-badge + underline) ========== */
 .cv-section h3 {
   display: flex; align-items: center; gap: 0.7rem;
@@ -2896,31 +2926,31 @@ ul.edu-bullets, ul.exp-bullets,
 .edu-bullets li:last-child, .exp-bullets li:last-child { margin-bottom: 0; }
 
 /* Rotating accent ribbons (edu — 4 blocks; exp — 4 blocks) */
-section.edu > .edu-block:nth-of-type(1)::before { background: #6A66D5; }
-section.edu > .edu-block:nth-of-type(2)::before { background: #8B5CC7; }
-section.edu > .edu-block:nth-of-type(3)::before { background: #3A7FC4; }
-section.edu > .edu-block:nth-of-type(4)::before { background: #5B6FC7; }
-section.edu > .edu-block:nth-of-type(5)::before { background: #7B4CC0; }
-section.edu > .edu-block:nth-of-type(1) .edu-bullets li::before { background: #6A66D5; }
-section.edu > .edu-block:nth-of-type(2) .edu-bullets li::before { background: #8B5CC7; }
-section.edu > .edu-block:nth-of-type(3) .edu-bullets li::before { background: #3A7FC4; }
-section.edu > .edu-block:nth-of-type(4) .edu-bullets li::before { background: #5B6FC7; }
-section.experience > .exp-block:nth-of-type(1)::before,
-section.exp > .exp-block:nth-of-type(1)::before { background: #8B5CC7; }
-section.experience > .exp-block:nth-of-type(2)::before,
-section.exp > .exp-block:nth-of-type(2)::before { background: #3A7FC4; }
-section.experience > .exp-block:nth-of-type(3)::before,
-section.exp > .exp-block:nth-of-type(3)::before { background: #5B6FC7; }
-section.experience > .exp-block:nth-of-type(4)::before,
-section.exp > .exp-block:nth-of-type(4)::before { background: #7B4CC0; }
-section.experience > .exp-block:nth-of-type(1) .exp-bullets li::before,
-section.exp > .exp-block:nth-of-type(1) .exp-bullets li::before { background: #8B5CC7; }
-section.experience > .exp-block:nth-of-type(2) .exp-bullets li::before,
-section.exp > .exp-block:nth-of-type(2) .exp-bullets li::before { background: #3A7FC4; }
-section.experience > .exp-block:nth-of-type(3) .exp-bullets li::before,
-section.exp > .exp-block:nth-of-type(3) .exp-bullets li::before { background: #5B6FC7; }
-section.experience > .exp-block:nth-of-type(4) .exp-bullets li::before,
-section.exp > .exp-block:nth-of-type(4) .exp-bullets li::before { background: #7B4CC0; }
+section.edu .edu-block:nth-of-type(1)::before { background: #6A66D5; }
+section.edu .edu-block:nth-of-type(2)::before { background: #8B5CC7; }
+section.edu .edu-block:nth-of-type(3)::before { background: #3A7FC4; }
+section.edu .edu-block:nth-of-type(4)::before { background: #5B6FC7; }
+section.edu .edu-block:nth-of-type(5)::before { background: #7B4CC0; }
+section.edu .edu-block:nth-of-type(1) .edu-bullets li::before { background: #6A66D5; }
+section.edu .edu-block:nth-of-type(2) .edu-bullets li::before { background: #8B5CC7; }
+section.edu .edu-block:nth-of-type(3) .edu-bullets li::before { background: #3A7FC4; }
+section.edu .edu-block:nth-of-type(4) .edu-bullets li::before { background: #5B6FC7; }
+section.experience .exp-block:nth-of-type(1)::before,
+section.exp .exp-block:nth-of-type(1)::before { background: #8B5CC7; }
+section.experience .exp-block:nth-of-type(2)::before,
+section.exp .exp-block:nth-of-type(2)::before { background: #3A7FC4; }
+section.experience .exp-block:nth-of-type(3)::before,
+section.exp .exp-block:nth-of-type(3)::before { background: #5B6FC7; }
+section.experience .exp-block:nth-of-type(4)::before,
+section.exp .exp-block:nth-of-type(4)::before { background: #7B4CC0; }
+section.experience .exp-block:nth-of-type(1) .exp-bullets li::before,
+section.exp .exp-block:nth-of-type(1) .exp-bullets li::before { background: #8B5CC7; }
+section.experience .exp-block:nth-of-type(2) .exp-bullets li::before,
+section.exp .exp-block:nth-of-type(2) .exp-bullets li::before { background: #3A7FC4; }
+section.experience .exp-block:nth-of-type(3) .exp-bullets li::before,
+section.exp .exp-block:nth-of-type(3) .exp-bullets li::before { background: #5B6FC7; }
+section.experience .exp-block:nth-of-type(4) .exp-bullets li::before,
+section.exp .exp-block:nth-of-type(4) .exp-bullets li::before { background: #7B4CC0; }
 
 /* ========== Skills (upgraded rows) ========== */
 section.skills-prog { }
@@ -3106,9 +3136,10 @@ ul.teach-bullets, .teach-block .teach-bullets { margin: 0.7rem 0 0 1.2rem; paddi
 -->
 <!-- Education Section -->
 <section class="edu cv-section">
-<h3>
+<details open>
+<summary><h3>
 <i class="fa fa-graduation-cap"></i> Education
-</h3>
+</h3></summary>
 <div class="edu-block">
 <div class="edu-head">
 <span class="edu-degree"><strong>Ph.D. in Geography</strong> (in progress)</span>
@@ -3140,12 +3171,14 @@ ul.teach-bullets, .teach-block .teach-bullets { margin: 0.7rem 0 0 1.2rem; paddi
 </div>
 <p class="edu-inst">University of California, Berkeley · Berkeley, CA</p>
 </div>
+</details>
 </section>
 <!-- Experience Section -->
 <section class="experience cv-section">
-<h3>
+<details open>
+<summary><h3>
 <i class="fa fa-briefcase"></i> Experience
-</h3>
+</h3></summary>
 <div class="exp-block">
 <div class="exp-head">
 <span class="exp-role"><strong>Planet Archive Intern</strong></span>
@@ -3189,12 +3222,14 @@ ul.teach-bullets, .teach-block .teach-bullets { margin: 0.7rem 0 0 1.2rem; paddi
 <li>Implemented Salesforce tools for communication and streamlined data workflows for grantmaking.</li>
 </ul>
 </div>
+</details>
 </section>
 <!-- Skills Section -->
 <section class="skills-prog cv-section">
-<h3>
+<details open>
+<summary><h3>
 <i class="fas fa-code"></i> Technical Skills
-</h3>
+</h3></summary>
 <div class="skill-row">
 <span class="skill-label">AI / Machine Learning</span>
 <span class="skill-items">Statistical learning, probabilistic forecasting, random forests, gradient boosting (XGBoost), Bayesian optimization, neural networks, deep learning</span>
@@ -3215,12 +3250,14 @@ ul.teach-bullets, .teach-block .teach-bullets { margin: 0.7rem 0 0 1.2rem; paddi
 <span class="skill-label">Development Tools</span>
 <span class="skill-items">Git, GitHub, Docker, Redis, Celery, LaTeX, HTML, CSS, Salesforce CRM</span>
 </div>
+</details>
 </section>
 <!-- Interests Section -->
 <section class="interests cv-section">
-<h3>
+<details open>
+<summary><h3>
 <i class="fas fa-star"></i> Interests
-</h3>
+</h3></summary>
 <ul class="interests-items">
 <li>
 <i class="fas fa-fw fa-palette"></i> Art
@@ -3235,6 +3272,7 @@ ul.teach-bullets, .teach-block .teach-bullets { margin: 0.7rem 0 0 1.2rem; paddi
 <i class="fas fa-fw fa-music"></i> Music
 </li>
 </ul>
+</details>
 </section>
 </div>
 <footer style="text-align: center; margin-top: 40px; padding: 20px; font-size: 0.85em; color: #666;">

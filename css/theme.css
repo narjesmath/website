@@ -456,6 +456,33 @@ details code {font-size: 1.1em;}
 .cv-section {
   margin-bottom: 2.25rem;
 }
+.cv-section > details { margin: 0; }
+.cv-section > details > summary {
+  list-style: none;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.cv-section > details > summary::-webkit-details-marker { display: none; }
+.cv-section > details > summary::marker { content: ""; }
+.cv-section > details > summary h3 { position: relative; padding-right: 2.25rem; }
+.cv-section > details > summary h3::after {
+  content: "\25BE";
+  position: absolute;
+  right: 0.1rem;
+  top: 50%;
+  transform: translateY(-65%) rotate(-90deg);
+  font-size: 0.95rem;
+  line-height: 1;
+  opacity: 0.55;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  color: inherit;
+}
+.cv-section > details[open] > summary h3::after {
+  transform: translateY(-65%) rotate(0deg);
+  opacity: 0.85;
+}
+.cv-section > details > summary:hover h3::after { opacity: 1; }
 .cv-section h3 {
   font-family: var(--heading-font), var(--heading-default);
   font-size: 1.1rem;

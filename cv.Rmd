@@ -15,7 +15,8 @@ output:
 
   <!-- Education Section -->
   <section class="edu cv-section">
-    <h3><i class="fa fa-graduation-cap"></i> Education</h3>
+   <details open>
+    <summary><h3><i class="fa fa-graduation-cap"></i> Education</h3></summary>
 
     <div class="edu-block">
       <div class="edu-head">
@@ -51,11 +52,13 @@ output:
       </div>
       <p class="edu-inst">University of California, Berkeley · Berkeley, CA</p>
     </div>
+   </details>
   </section>
 
   <!-- Experience Section -->
   <section class="experience cv-section">
-    <h3><i class="fa fa-briefcase"></i> Experience</h3>
+   <details open>
+    <summary><h3><i class="fa fa-briefcase"></i> Experience</h3></summary>
 
     <div class="exp-block">
       <div class="exp-head">
@@ -103,11 +106,13 @@ output:
         <li>Implemented Salesforce tools for communication and streamlined data workflows for grantmaking.</li>
       </ul>
     </div>
+   </details>
   </section>
 
   <!-- Skills Section -->
   <section class="skills-prog cv-section">
-    <h3><i class="fas fa-code"></i> Technical Skills</h3>
+   <details open>
+    <summary><h3><i class="fas fa-code"></i> Technical Skills</h3></summary>
 
     <div class="skill-row">
       <span class="skill-label">AI / Machine Learning</span>
@@ -129,17 +134,20 @@ output:
       <span class="skill-label">Development Tools</span>
       <span class="skill-items">Git, GitHub, Docker, Redis, Celery, LaTeX, HTML, CSS, Salesforce CRM</span>
     </div>
+   </details>
   </section>
 
   <!-- Interests Section -->
   <section class="interests cv-section">
-    <h3><i class="fas fa-star"></i> Interests</h3>
+   <details open>
+    <summary><h3><i class="fas fa-star"></i> Interests</h3></summary>
     <ul class="interests-items">
       <li><i class="fas fa-fw fa-palette"></i> Art</li>
       <li><i class="fas fa-fw fa-book"></i> Books</li>
       <li><i class="fas fa-fw fa-film"></i> Movies</li>
       <li><i class="fas fa-fw fa-music"></i> Music</li>
     </ul>
+   </details>
   </section>
 </div>
 
