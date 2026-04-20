@@ -20,7 +20,7 @@
   // Leave the string empty to keep analytics off.
   // ---------------------------------------------------------------
   if (typeof window.SITE_ANALYTICS_CODE === "undefined") {
-    window.SITE_ANALYTICS_CODE = ""; // <-- put your GoatCounter subdomain here
+    window.SITE_ANALYTICS_CODE = "narjes-math"; // <-- GoatCounter subdomain (https://narjes-math.goatcounter.com)
   }
 
   var STORAGE_KEY_THEME = "site.theme";
