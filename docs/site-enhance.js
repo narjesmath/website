@@ -370,7 +370,7 @@
     // [background file, white-overlay alpha]. Lower alpha = image more visible.
     var map = {
       "index.html":    ["back6.jpg",  0.82],
-      "cv.html":       ["back3.jpg",  0.86],
+      "cv.html":       ["back9.jpg",  0.86],
       "teaching.html": ["back5.jpg",  0.86],
       "projects.html": ["back4.jpg",  0.86],
       "research.html": ["back10.jpg", 0.72]
@@ -379,6 +379,10 @@
     var root = document.documentElement;
     root.style.setProperty("--page-background", "url('images/" + entry[0] + "')");
     root.style.setProperty("--page-overlay", "rgba(255,255,255," + entry[1] + ")");
+    // Expose the page name so CSS can target per-page tweaks (e.g. the
+    // research article card behind text).
+    var slug = page.replace(/\.html$/, "") || "index";
+    root.setAttribute("data-page", slug);
   }
 
   // ---------- Analytics (GoatCounter) ----------

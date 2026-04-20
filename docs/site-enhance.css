@@ -363,6 +363,47 @@ html:not([data-theme="dark"]) footer { background-color: rgba(255,255,255,0.72);
 html:not([data-theme="dark"]) d-article,
 html:not([data-theme="dark"]) .d-article { background: transparent; }
 
+/* Research page: the article is mostly prose (no card children), so sit
+   the text on a translucent white card so the tiled background reads
+   clearly around it without hurting readability. */
+html:not([data-theme="dark"])[data-page="research"] d-article,
+html:not([data-theme="dark"])[data-page="research"] .d-article {
+  background: rgba(255,255,255,0.88);
+  border: 1px solid rgba(106,102,213,0.14);
+  border-radius: 14px;
+  box-shadow: 0 6px 22px rgba(30,58,138,0.08), 0 1px 3px rgba(0,0,0,0.04);
+  padding: 2rem 2.25rem;
+  margin: 1.5rem auto 2rem;
+  max-width: min(860px, calc(100% - 2rem));
+}
+@media (max-width: 640px) {
+  html:not([data-theme="dark"])[data-page="research"] d-article,
+  html:not([data-theme="dark"])[data-page="research"] .d-article {
+    padding: 1.25rem 1.1rem;
+    border-radius: 10px;
+  }
+}
+
+/* ---------- Site header banner: dark-blue title + icons (light mode) ---------- */
+html:not([data-theme="dark"]) .distill-site-header,
+html:not([data-theme="dark"]) .distill-site-header a,
+html:not([data-theme="dark"]) .distill-site-header .title,
+html:not([data-theme="dark"]) .distill-site-header a.nav-toggle,
+html:not([data-theme="dark"]) .distill-site-header .nav-dropbtn {
+  color: #1E3A8A !important;
+}
+html:not([data-theme="dark"]) .distill-site-header a:hover,
+html:not([data-theme="dark"]) .distill-site-header a:focus {
+  color: #0F2463 !important;
+}
+html:not([data-theme="dark"]) .site-theme-toggle--in-nav {
+  color: #1E3A8A !important;
+}
+html:not([data-theme="dark"]) .site-theme-toggle--in-nav:hover {
+  color: #0F2463 !important;
+  background: rgba(30,58,138,0.08);
+}
+
 /* ---------- CV: Expand/Collapse all controls ---------- */
 .cv-controls {
   display: flex;
