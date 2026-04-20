@@ -8,6 +8,21 @@
 (function () {
   "use strict";
 
+  // ---------------------------------------------------------------
+  // Privacy-friendly analytics (GoatCounter). DISABLED by default.
+  //
+  // To enable:
+  //   1. Sign up (free, no credit card) at https://www.goatcounter.com/signup
+  //   2. Set the line below to your GoatCounter code, e.g. "narjesmath".
+  //      Script will load //{code}.goatcounter.com/count automatically.
+  //   3. Deploy. Done — no cookies, no PII, GDPR-compliant.
+  //
+  // Leave the string empty to keep analytics off.
+  // ---------------------------------------------------------------
+  if (typeof window.SITE_ANALYTICS_CODE === "undefined") {
+    window.SITE_ANALYTICS_CODE = ""; // <-- put your GoatCounter subdomain here
+  }
+
   var STORAGE_KEY_THEME = "site.theme";
   var STORAGE_KEY_CV = "site.cv.sections";
 
@@ -19,10 +34,18 @@
       var isDark = theme === "dark";
       btn.setAttribute("aria-pressed", String(isDark));
       btn.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+      btn.setAttribute("title", isDark ? "Switch to light mode (t)" : "Switch to dark mode (t)");
       btn.innerHTML = isDark
         ? '<i class="fas fa-sun" aria-hidden="true"></i>'
         : '<i class="fas fa-moon" aria-hidden="true"></i>';
     }
+  }
+
+  function toggleTheme() {
+    var current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    var next = current === "dark" ? "light" : "dark";
+    try { localStorage.setItem(STORAGE_KEY_THEME, next); } catch (e) {}
+    applyTheme(next);
   }
 
   function initTheme() {
@@ -35,14 +58,30 @@
     var btn = document.createElement("button");
     btn.className = "site-theme-toggle";
     btn.type = "button";
-    document.body.appendChild(btn);
+
+    // Prefer injecting into the site's top nav so it lives inline with the
+    // other navigation icons. Fall back to a fixed floating button.
+    var navRight = document.querySelector(".distill-site-header .nav-right");
+    if (navRight) {
+      btn.classList.add("site-theme-toggle--in-nav");
+      navRight.insertBefore(btn, navRight.firstChild);
+    } else {
+      btn.classList.add("site-theme-toggle--floating");
+      document.body.appendChild(btn);
+    }
     applyTheme(theme);
 
-    btn.addEventListener("click", function () {
-      var current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
-      var next = current === "dark" ? "light" : "dark";
-      try { localStorage.setItem(STORAGE_KEY_THEME, next); } catch (e) {}
-      applyTheme(next);
+    btn.addEventListener("click", toggleTheme);
+
+    // Keyboard shortcut: "t" toggles theme (ignored in inputs / when modifier held).
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "t" && e.key !== "T") return;
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      var target = e.target;
+      if (target && (target.isContentEditable ||
+          /^(INPUT|TEXTAREA|SELECT)$/i.test(target.tagName))) return;
+      e.preventDefault();
+      toggleTheme();
     });
 
     if (window.matchMedia) {
@@ -149,6 +188,97 @@
     });
   }
 
+  // ---------- Table of contents (auto-built, sticky left rail) ----------
+  function slugify(s) {
+    return (s || "")
+      .trim().toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "") || "section";
+  }
+
+  function pickTocTargets(article) {
+    // Preference order: real article headings, teaching course titles, project titles.
+    var primary = article.querySelectorAll("h2, h3");
+    if (primary.length >= 3) return { nodes: primary, label: "On this page" };
+    var teachCourses = article.querySelectorAll(".teach-course");
+    if (teachCourses.length >= 3) return { nodes: teachCourses, label: "Courses" };
+    var projects = article.querySelectorAll(".projects-grid .project-title-text");
+    if (projects.length >= 3) return { nodes: projects, label: "Projects" };
+    return null;
+  }
+
+  function initTOC() {
+    var article = document.querySelector("d-article, .d-article");
+    if (!article) return;
+    // CV has its own expand/collapse UI; don't stack a TOC on top.
+    if (document.querySelector(".resume")) return;
+    var picked = pickTocTargets(article);
+    if (!picked) return;
+    var nodes = picked.nodes;
+
+    var toc = document.createElement("nav");
+    toc.className = "site-toc";
+    toc.setAttribute("aria-label", picked.label);
+
+    var title = document.createElement("div");
+    title.className = "site-toc__title";
+    title.textContent = picked.label;
+    toc.appendChild(title);
+
+    var list = document.createElement("ul");
+    toc.appendChild(list);
+
+    Array.prototype.forEach.call(nodes, function (n, i) {
+      if (!n.id) n.id = "toc-" + i + "-" + slugify(n.textContent);
+      var li = document.createElement("li");
+      li.className = "site-toc__item site-toc__item--" + (n.tagName || "").toLowerCase();
+      var a = document.createElement("a");
+      a.href = "#" + n.id;
+      a.textContent = (n.textContent || "").trim().replace(/\s+/g, " ");
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+
+    document.body.appendChild(toc);
+
+    // Mobile drawer toggle
+    var toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className = "site-toc__toggle";
+    toggle.setAttribute("aria-label", "Toggle table of contents");
+    toggle.innerHTML = '<i class="fas fa-list" aria-hidden="true"></i>';
+    document.body.appendChild(toggle);
+    toggle.addEventListener("click", function () { toc.classList.toggle("is-open"); });
+
+    // Highlight current section via IntersectionObserver
+    if (!("IntersectionObserver" in window)) return;
+    var linkByHash = {};
+    toc.querySelectorAll("a").forEach(function (a) { linkByHash[a.getAttribute("href")] = a; });
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var link = linkByHash["#" + entry.target.id];
+        if (!link) return;
+        toc.querySelectorAll("a.is-active").forEach(function (el) { el.classList.remove("is-active"); });
+        link.classList.add("is-active");
+      });
+    }, { rootMargin: "-20% 0px -65% 0px", threshold: 0 });
+    Array.prototype.forEach.call(nodes, function (n) { observer.observe(n); });
+  }
+
+  // ---------- Analytics (GoatCounter) ----------
+  function initAnalytics() {
+    var code = window.SITE_ANALYTICS_CODE;
+    if (!code || typeof code !== "string") return;
+    // Honor Do-Not-Track.
+    if (navigator.doNotTrack === "1" || window.doNotTrack === "1") return;
+    var s = document.createElement("script");
+    s.async = true;
+    s.setAttribute("data-goatcounter", "https://" + code + ".goatcounter.com/count");
+    s.src = "//gc.zgo.at/count.js";
+    document.head.appendChild(s);
+  }
+
   function onReady(fn) {
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", fn);
@@ -161,5 +291,7 @@
     try { initTheme(); } catch (e) { /* no-op */ }
     try { initBackToTop(); } catch (e) { /* no-op */ }
     try { initCv(); } catch (e) { /* no-op */ }
+    try { initTOC(); } catch (e) { /* no-op */ }
+    try { initAnalytics(); } catch (e) { /* no-op */ }
   });
 })();
